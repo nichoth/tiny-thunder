@@ -1,0 +1,34 @@
+{
+  "name": "tiny-thunder",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run watch & ecstatic public",
+    "watch": "watchify -t [envify --PUBLIC_ID `head -1 .env`] browser/main.js -o public/bundle.js -dv",
+    "build": "browserify -t [envify --PUBLIC_ID `head -1 .env`] browser/main.js > public/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/tiny-thunder.git"
+  },
+  "author": "Nick Thomas <nichoth@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nichoth/tiny-thunder/issues"
+  },
+  "homepage": "https://github.com/nichoth/tiny-thunder#readme",
+  "private": true,
+  "dependencies": {
+    "async-waterfall": "^0.1.5",
+    "curry": "^1.2.0",
+    "dotenv": "^2.0.0",
+    "moltin": "^1.0.0"
+  },
+  "devDependencies": {
+    "brfs": "^1.4.3",
+    "ecstatic": "^1.4.0",
+    "envify": "^3.4.0"
+  }
+}
