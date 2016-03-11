@@ -2,8 +2,6 @@ var curry = require('curry');
 var wrap = require('../lib/wrap');
 var waterfall = require('async-waterfall');
 
-console.log(process.env.PUBLIC_ID);
-
 var moltin = new Moltin({
   publicId: process.env.PUBLIC_ID
 });

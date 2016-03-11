@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run watch & ecstatic public",
-    "watch": "watchify -t [envify --PUBLIC_ID `head -1 .env`] browser/main.js -o public/bundle.js -dv",
-    "build": "browserify -t [envify --PUBLIC_ID `head -1 .env`] browser/main.js > public/bundle.js"
+    "watch": "npm run watchjs & npm run watchcss",
+    "dev-server": "wzrd --pushstate --path=public src/main.js:bundle.js -- -dv -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css]",
+    "dev": "npm run dev-server & npm run watchcss",
+    "watchjs": "watchify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css] src/main.js -o public/bundle.js -dv",
+    "build": "browserify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] src/main.js > public/bundle.js",
+    "css": "postcss --config postcss.json",
+    "watchcss": "postcss --config postcss.json --watch"
   },
   "repository": {
     "type": "git",
@@ -24,11 +28,34 @@
     "async-waterfall": "^0.1.5",
     "curry": "^1.2.0",
     "dotenv": "^2.0.0",
-    "moltin": "^1.0.0"
+    "global": "^4.3.0",
+    "h-shopping-cart": "0.0.5",
+    "moltin": "^1.0.0",
+    "node-cb": "0.0.1",
+    "observ": "^0.2.0",
+    "observ-array": "^3.2.1",
+    "observ-struct": "^6.0.0",
+    "observify": "^1.1.2",
+    "route-event": "0.0.1",
+    "routes": "^2.1.0",
+    "update-el": "0.0.1",
+    "xtend": "^4.0.1",
+    "yo-yo": "^1.1.1"
   },
   "devDependencies": {
-    "brfs": "^1.4.3",
+    "autoprefixer": "^6.3.3",
+    "csjs-extractify": "^1.0.0-alpha.0",
     "ecstatic": "^1.4.0",
-    "envify": "^3.4.0"
+    "envify": "^3.4.0",
+    "gulp": "^3.9.1",
+    "ini-cli": "0.0.0",
+    "postcss-cli": "^2.5.1",
+    "postcss-import": "^8.0.2",
+    "postcss-inline-comment": "^2.0.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-scss": "^0.1.7",
+    "precss": "^1.4.0",
+    "wzrd": "^1.3.1",
+    "yo-yoify": "^1.0.2"
   }
 }

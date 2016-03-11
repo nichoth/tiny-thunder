@@ -1,0 +1,14 @@
+{
+    "use": [
+      "postcss-import",
+      "postcss-inline-comment",
+      "precss",
+      "autoprefixer"
+    ],
+    "input": "src/style/main.css",
+    "output": "public/style.css",
+    "local-plugins": true,
+    "autoprefixer": {
+        "browsers": "> 5%"
+    }
+}
