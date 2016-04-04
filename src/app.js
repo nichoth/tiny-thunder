@@ -1,7 +1,6 @@
 var Router = require('./lib/routes')
 var bel = require('bel')
 var update = require('update-el')
-var four04 = require('./lib/view/404')
 var moltin = new Moltin({
   publicId: process.env.PUBLIC_ID
 })

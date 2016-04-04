@@ -1,5 +1,4 @@
 var renderCart = require('h-shopping-cart')
-var struct = require('observ-struct')
 var delButton = require('h-buttons/lib/delete')
 var xtend = require('xtend')
 var CartStore = require('../data/cart')
