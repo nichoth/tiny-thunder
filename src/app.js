@@ -11,8 +11,8 @@ module.exports = function() {
 
   moltin.Authenticate(function(auth) {
     var router = Router(moltin)
-    router(function onChange(data) {
-      update(el, data.activeRoute())
+    router(function onChange(content) {
+      update(el, content)
     })
   })
 

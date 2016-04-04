@@ -1,4 +1,5 @@
 var renderCart = require('h-shopping-cart')
+var loading = require('../view/loading')
 var delButton = require('h-buttons/lib/delete')
 var xtend = require('xtend')
 var CartStore = require('../data/cart')
@@ -12,9 +13,13 @@ function render(data) {
     }, [content])
   }
 
+  if (data.isResolving) {
+    return loading()
+  }
+
   return renderCart(bel, xtend(data, {
-    rows: Object.keys(data.contents).map(function(id) {
-      var row = data.contents[id]
+    rows: Object.keys(data.cart.contents).map(function(id) {
+      var row = data.cart.contents[id]
       var priceTotal = row.totals.post_discount.formatted.without_tax
 
       return {
@@ -25,7 +30,7 @@ function render(data) {
         title: row.title,
         priceEach: '$' + row.price + ' ea',
         quantity: [symbol('×'), row.quantity],
-        priceTotal: [symbol('='), '$' + priceTotal]
+        priceTotal: [symbol('='), priceTotal]
       }
     })
   }))

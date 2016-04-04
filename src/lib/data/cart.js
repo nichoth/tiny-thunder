@@ -1,15 +1,21 @@
 var struct = require('observ-struct')
+var observ = require('observ')
 var handleErr = require('../handle-error')
 
 module.exports = function(moltin) {
   var s = struct({
-    contents: {}
+    isResolving: observ(false),
+    cart: struct({ contents: {} })
   })
   s.fetch = function() {
+    s.isResolving.set(true)
     moltin.Cart.Contents(function onSuccess(cart) {
-      console.log(cart)
-      s.set(cart)
-    }, handleErr)
+      s.isResolving.set(false)
+      s.cart.set(cart)
+    }, function onErr(err) {
+      handleErr(err)
+      s.isResolving.set(false)
+    })
   }
   return s
 }
