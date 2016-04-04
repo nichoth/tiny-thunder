@@ -1,15 +1,10 @@
 var struct = require('observ-struct')
+var observ = require('observ')
 var handleError = require('../handle-error')
 
-module.exports = function() {
+function bla(moltin) {
 
-  var moltin = new Moltin({
-    publicId: process.env.PUBLIC_ID
-  })
   var products = ProductStore(moltin)
-  moltin.Authenticate(function(auth) {
-    products.fetch()
-  })
 
   products(function onChange(data) {
     console.log('change', data)
@@ -23,23 +18,31 @@ module.exports = function() {
       moltin.Cart.Contents(console.log.bind(console, 'contents'), handleError)
     }, handleError)
   }
+}
 
 
-  function ProductStore(moltin) {
-    var s = struct({})
+module.exports = ProductStore
 
-    function fetchFn() {
-      moltin.Product.Find({}, function(products) {
-        s.set(products.reduce(function(acc, p) {
-          acc[p.id] = p
-          return acc
-        }, {}))
-      }, function onErr(err) {
-        console.log('err', err)
-      })
-    }
+function ProductStore(moltin) {
+  var s = struct({
+    isResolving: observ(false),
+    products: struct({})
+  })
 
-    s.fetch = fetchFn
-    return s
+  function fetchFn() {
+    s.isResolving.set(true)
+    moltin.Product.Find({}, function onSuccess(products) {
+      s.isResolving.set(false)
+      s.products.set(products.reduce(function(acc, p) {
+        acc[p.id] = p
+        return acc
+      }, {}))
+    }, function onErr(err) {
+      s.isResolving.set(false)
+      console.log('err', err)
+    })
   }
+
+  s.fetch = fetchFn
+  return s
 }

@@ -1,3 +1,5 @@
+var bel = require('bel')
+
 module.exports = function(moltin) {
   return {
     '/': require('./root').bind(null, (moltin)),
@@ -5,6 +7,7 @@ module.exports = function(moltin) {
       var r = require('./cart')(moltin)
       r.fetch()
       return r
-    }
+    },
+    '/shop': require('./shop').bind(null, moltin)
   }
 }
