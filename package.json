@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm run watchjs & npm run watchcss",
-    "dev-server": "wzrd --pushstate --path=public src/main.js:bundle.js -- -dv -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css]",
+    "dev-server": "wzrd --pushstate --path=public src/main.js:bundle.js -- -dv -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css] | garnish",
     "dev": "npm run dev-server & npm run watchcss",
     "watchjs": "watchify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css] src/main.js -o public/bundle.js -dv",
     "build": "browserify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] src/main.js > public/bundle.js",
@@ -47,6 +47,7 @@
     "csjs-extractify": "^1.0.0-alpha.0",
     "ecstatic": "^1.4.0",
     "envify": "^3.4.0",
+    "garnish": "^5.1.1",
     "gulp": "^3.9.1",
     "ini-cli": "0.0.0",
     "postcss-cli": "^2.5.1",
