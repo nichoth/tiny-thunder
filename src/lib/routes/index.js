@@ -12,14 +12,15 @@ module.exports = function(moltin) {
   var stopListening = function(){}
 
   Object.keys(routes).forEach(function(path) {
-    router.addRoute(path, function() {
+    var routeFn = routes[path]
+    router.addRoute(path, function(params) {
       stopListening()
-      var route = routes[path]()
-      var r = route()
-      activeRoute.set(route.render(r))
+      var routeState = routeFn(params)
+      var routeData = routeState()
+      activeRoute.set(routeState.render(routeData))
 
-      stopListening = route(function onChange(data) {
-        activeRoute.set(route.render(data))
+      stopListening = routeState(function onChange(data) {
+        activeRoute.set(routeState.render(data))
       })
     })
   })

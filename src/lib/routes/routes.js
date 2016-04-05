@@ -1,6 +1,8 @@
-var bel = require('bel')
+var Cache = require('../data/product-cache')
 
 module.exports = function(moltin) {
+  var cache = Cache(moltin)
+
   return {
     '/': require('./root').bind(null, (moltin)),
     '/cart': function() {
@@ -8,6 +10,7 @@ module.exports = function(moltin) {
       r.fetch()
       return r
     },
-    '/shop': require('./shop').bind(null, moltin)
+    '/shop': require('./shop').bind(null, cache),
+    '/shop/:category': require('./category').bind(null, cache)
   }
 }
