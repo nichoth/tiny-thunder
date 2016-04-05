@@ -15,12 +15,16 @@ module.exports = function Cache(moltin) {
         cb(err)
       })
     },
-    forCategory: function(cat, cb) {
+    // pass in slug
+    forCategory: function(catSlug, cb) {
       var self = this
       if (Object.keys(products).length) {
         return cb(null, Object.keys(products).filter(function(id) {
           var p = products[id]
-          return (Object.keys(p.category.data).indexOf(cat) > -1)
+          return (Object.keys(p.category.data).findIndex(function(catId) {
+            var c = p.category.data[catId]
+            return c.slug === catSlug
+          }) > -1)
         }).reduce(function(acc, id) {
           acc[id] = products[id]
           return acc
@@ -28,7 +32,7 @@ module.exports = function Cache(moltin) {
       }
       this.fetch(function(err, prods) {
         if (err) return cb(err)
-        self.forCategory(cat, cb)
+        self.forCategory(catSlug, cb)
       })
     }
   }
