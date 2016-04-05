@@ -1,19 +1,11 @@
 var Products = require('../data/products')
-var loading = require('../view/loading')
+var productView = require('../view/products')
 var bel = require('bel')
+var products
 
 module.exports = function(moltin) {
-  var products = Products(moltin)
-  products.render = render
+  products = products || Products(moltin)
+  products.render = productView
   products.fetch()
   return products
 }
-
-function render(data) {
-  console.log(data)
-  if (data.isResolving) {
-    return loading()
-  }
-  return bel`<div>product page ${Object.keys(data.products).length}</div>`
-}
-

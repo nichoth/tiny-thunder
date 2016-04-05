@@ -1,11 +1,6 @@
 var style = require('./nav.csjs')
 
-module.exports = function renderNav(bel) {
-  var links = [
-    { url: '/cart', text: 'cart' },
-    { url: '/shop', text: 'shop' },
-    { url: '/', text: 'home' }
-  ]
+module.exports = function renderNav(bel, links) {
 
   return bel`
     <nav>

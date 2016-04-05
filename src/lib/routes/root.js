@@ -4,9 +4,16 @@ var struct = require('observ-struct')
 var bel = require('bel')
 
 function render(data) {
+
+  var links = [
+    { url: '/cart', text: 'cart' },
+    { url: '/shop', text: 'shop' },
+    { url: '/', text: 'home' }
+  ]
+
   return bel`
     <div class="root">
-      ${nav(bel)}
+      ${nav(bel, links)}
       ${head(bel)}
     </div>
   `

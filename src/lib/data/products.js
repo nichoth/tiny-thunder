@@ -29,14 +29,22 @@ function ProductStore(moltin) {
     products: struct({})
   })
 
+  var productsCache = {}
+
   function fetchFn() {
+    if (Object.keys(productsCache).length) {
+      return s.products.set(productsCache)
+    }
     s.isResolving.set(true)
+
     moltin.Product.Find({}, function onSuccess(products) {
       s.isResolving.set(false)
       s.products.set(products.reduce(function(acc, p) {
         acc[p.id] = p
         return acc
       }, {}))
+      productsCache = s.products()
+
     }, function onErr(err) {
       s.isResolving.set(false)
       console.log('err', err)

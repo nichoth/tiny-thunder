@@ -9,6 +9,30 @@
     margin-right: 1em;
   }
 
+  .product-container_4uHe4c {
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+  }
+
+  .product-list-item_4uHe4c {
+    min-width: 15em;
+    max-width: 15em;
+    margin: 0 1em;
+    margin-bottom: 2em;
+    padding: 1em;
+    border: 1px solid black;
+  }
+
+  .row_3ehaEf {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .cell_3ehaEf {
+    flex: 1;
+  }
+
   .cart_3VvqlD {
   }
 
