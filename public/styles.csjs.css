@@ -1,14 +1,4 @@
 
-  .main-nav_1TPZw {
-    border: 1px solid gray;
-    list-style: none;
-    padding: 0;
-  }
-  .main-nav_1TPZw li {
-    display: inline-block;
-    margin-right: 1em;
-  }
-
   .product-container_4uHe4c {
     justify-content: space-around;
     list-style: none;
@@ -22,6 +12,16 @@
     margin-bottom: 2em;
     padding: 1em;
     border: 1px solid black;
+  }
+
+  .main-nav_1TPZw {
+    border: 1px solid gray;
+    list-style: none;
+    padding: 0;
+  }
+  .main-nav_1TPZw li {
+    display: inline-block;
+    margin-right: 1em;
   }
 
   .row_3ehaEf {
