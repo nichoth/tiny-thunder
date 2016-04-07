@@ -1,3 +1,6 @@
+var struct = require('observ-struct')
+var observ = require('observ')
+
 module.exports = function Cache(moltin) {
   var products = false
 

@@ -1,18 +1,18 @@
 var style = require('./nav.csjs')
+var bel = require('bel')
 
-module.exports = function renderNav(bel, links) {
+module.exports = function renderNav(links) {
 
   return bel`
-    <nav>
-      <ul class="${style['main-nav']}">
-        ${links.map(function(page) {
-          return bel`
-            <li>
-              <a href="${page.url}">${page.text}</a>
-            </li>
-          `
-        })}
-      </ul>
-    </nav>
+    <ul class="nav">
+      ${links.map(function(page) {
+        var activeClass = page.activeLink ? 'active-link' : ''
+        return bel`
+        <li class="${style[activeClass]}">
+          <a href="${page.url}">${page.text}</a>
+        </li>
+        `
+      })}
+    </ul>
   `
 }

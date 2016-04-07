@@ -4,6 +4,7 @@ var struct = require('observ-struct')
 module.exports = function ProductState() {
   return struct({
     isResolving: observ(false),
-    products: struct({})
+    products: struct({}),
+    activeCategory: observ(false),
   })
 }
