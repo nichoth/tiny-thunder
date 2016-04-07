@@ -15,7 +15,7 @@ module.exports = function(data) {
         <div class="${style['product-image-wrapper']}" style="background-image: url('${p.images[0].url.http}')">
         </div>
         <p class="tt-product-item-text ${style['product-item-title']}">
-          ${p.title}
+          <a href="/product/${p.slug}">${p.title}</a>
         </p>
       </li>
     `
