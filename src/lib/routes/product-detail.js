@@ -8,9 +8,9 @@ module.exports = function(cache, params) {
     product: observ(false)
   })
   cache.bySlug(params.productSlug, function(err, prod) {
-    state.isResolving.set(false)
     if (err) return console.log(err)
     state.product.set(prod)
+    state.isResolving.set(false)
   })
   state.render = productView
   return state

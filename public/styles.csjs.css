@@ -16,6 +16,33 @@
   .sub-links_2BZLzl {
   }
 
+  .product-detail-page_O8s55 {
+    text-align: left;
+    max-width: 40em;
+    margin: 0 auto;
+    padding: 1em;
+  }
+
+  .product-gallery_O8s55 {
+  }
+
+  .product-gallery_O8s55 .main-image_O8s55 img {
+    width: 100%;
+  }
+
+  .product-detail-page_O8s55 .product-title_O8s55 {
+    color: gray;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+  }
+
+  .product-nav_O8s55 {
+    text-align: right;
+    margin-bottom: 1em;
+  }
+
+
   .product-container_4kVEVz {
     justify-content: space-around;
     list-style: none;
