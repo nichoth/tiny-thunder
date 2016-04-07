@@ -1,7 +1,7 @@
 var State = require('../data/product-state')
+var page = require('../view/wrapper')
 var xtend = require('xtend')
 var cats = require('../../config.json').categories
-var page = require('../view/wrapper')
 
 module.exports = function(cache, params) {
   var s = State()
@@ -16,25 +16,19 @@ module.exports = function(cache, params) {
       return {
         url: '/'+c.name,
         text: c.name,
-        activeLink: c.name === params.category
+        activeLink: c.name === 'jewelry'
       }
     })
-    var activeLink = cats.find(function(c) {
-      return c.name === params.category
+    var subLinks = cats.find(function(c) {
+      return c.name === 'jewelry'
+    }).children.map(function(child) {
+      return {
+        url: '/jewelry/'+child.name,
+        text: child.name,
+        activeLink: child.name === params.subCategory
+      }
     })
-    var subLinks = activeLink && activeLink.children ?
-      activeLink.children.map(function(ch) {
-        return {
-          url: '/'+activeLink.name+'/'+ch.name,
-          text: ch.name
-        }
-      }) :
-      ''
-
-    return page( xtend(data, {
-      links: links,
-      subLinks: subLinks
-    }))
+    return page(xtend(data, { links: links, subLinks: subLinks }))
   }
   return s
 }

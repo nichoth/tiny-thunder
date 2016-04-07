@@ -1,0 +1,12 @@
+{
+  "categories": [
+    { "name": "jewelry", "children": [
+      { "name": "hand" },
+      { "name": "ear" },
+      { "name": "neck" },
+      { "name": "other" }
+    ]},
+    { "name": "vintage" },
+    { "name": "more" }
+  ]
+}

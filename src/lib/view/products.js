@@ -1,5 +1,4 @@
 var bel = require('bel')
-var shopNav = require('./shop-nav')
 var loading = require('./loading')
 var style = require('./products.csjs')
 
@@ -23,7 +22,6 @@ module.exports = function(data) {
   })
 
   return bel`<div class="tt-product-page">
-    ${shopNav()}
     <ul class="tt-product-list ${style['product-container']}">
       ${ps}
     </ul>

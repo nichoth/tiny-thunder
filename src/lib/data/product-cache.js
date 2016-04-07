@@ -1,8 +1,14 @@
+var struct = require('observ-struct')
+var observ = require('observ')
+
 module.exports = function Cache(moltin) {
-  var products = {}
+  var products = false
+
   return {
+
+    // get all products
     fetch: function fetch(cb) {
-      if (Object.keys(products).length) {
+      if (products) {
         return cb(null, products)
       }
       moltin.Product.Find({}, function onSuccess(resp) {
@@ -15,15 +21,15 @@ module.exports = function Cache(moltin) {
         cb(err)
       })
     },
-    // pass in slug
-    forCategory: function(catSlug, cb) {
+
+    forCategory: function forCategory(catSlug, cb) {
       var self = this
-      if (Object.keys(products).length) {
+      if (products) {
         return cb(null, Object.keys(products).filter(function(id) {
           var p = products[id]
           return (Object.keys(p.category.data).findIndex(function(catId) {
-            var c = p.category.data[catId]
-            return c.slug === catSlug
+            var cat = p.category.data[catId]
+            return cat.slug === catSlug
           }) > -1)
         }).reduce(function(acc, id) {
           acc[id] = products[id]
@@ -35,6 +41,7 @@ module.exports = function Cache(moltin) {
         self.forCategory(catSlug, cb)
       })
     }
+
   }
 }
 
