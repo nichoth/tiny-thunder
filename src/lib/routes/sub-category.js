@@ -6,7 +6,6 @@ var cats = require('../../config.json').categories
 module.exports = function(cache, params) {
   var s = State()
   s.isResolving.set(true)
-  s.activeLink.set('jewelry')
   cache.forCategory(params.category, function(err, prods) {
     if (err) return console.log(err, err.response.body)
     s.isResolving.set(false)
@@ -20,10 +19,13 @@ module.exports = function(cache, params) {
         activeLink: c.name === 'jewelry'
       }
     })
-    var subLinks = cats.jewelry.children.map(function(child) {
+    var subLinks = cats.find(function(c) {
+      return c.name === 'jewelry'
+    }).children.map(function(child) {
       return {
         url: '/jewelry/'+child.name,
-        text: child.name
+        text: child.name,
+        activeLink: child.name === params.subCategory
       }
     })
     return page(xtend(data, { links: links, subLinks: subLinks }))
