@@ -9,16 +9,21 @@ module.exports = function(data) {
 
   console.log(data.products)
 
-  var ps = Object.keys(data.products).map(function(id) {
-    var p = data.products[id]
+  function product(p) {
     return bel`
       <li class="tt-product ${style['product-list-item']}">
-        <div>
-          ${p.title}
-          <img src="${p.images[0].url.http}">
+        <div class="${style['product-image-wrapper']}" style="background-image: url('${p.images[0].url.http}')">
         </div>
+        <p class="tt-product-item-text ${style['product-item-title']}">
+          <a href="/product/${p.slug}">${p.title}</a>
+        </p>
       </li>
     `
+  }
+
+  var ps = Object.keys(data.products).map(function(id) {
+    var p = data.products[id]
+    return product(p)
   })
 
   return bel`<div class="tt-product-page">

@@ -9,11 +9,38 @@ module.exports = csjs`
   }
 
   .product-list-item extends ${grid.cell} {
-    min-width: 15em;
-    max-width: 15em;
-    margin: 0 1em;
-    margin-bottom: 2em;
-    padding: 1em;
-    border: 1px solid black;
+    margin: 0 2em;
+    margin-bottom: 4em;
+  }
+
+  .product-list-item .product-image-wrapper {
+    opacity: 0.6;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+    -webkit-clip-path: url("#clippy-diamond");
+    clip-path: url("#clippy-diamond");
+  }
+
+  .product-item-title {
+    display: inline-block;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid gray;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .product-item-title a {
+    color: black;
+    transition: opacity 0.25s;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+
+  .product-item-title a:hover {
+    opacity: 1;
   }
 `
