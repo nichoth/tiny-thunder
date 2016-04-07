@@ -5,7 +5,6 @@ var navStyle = require('./nav.csjs')
 var products = require('./products')
 
 module.exports = function(data) {
-  console.log(data)
   var subLinks = data.subLinks ? nav(data.subLinks) : ''
 
   return bel`
@@ -19,6 +18,15 @@ module.exports = function(data) {
         `
       )}
       ${products(data)}
+
+      <svg class="diamond" width="0" height="0">
+        <defs>
+          <clipPath id="clippy-diamond" clipPathUnits="objectBoundingBox">
+            <polygon points="0.5 0, 1 0.5, 0.5 1, 0 0.5" />
+          </clipPath>
+        </defs>
+      </svg>
+
     </div>
   `
 }

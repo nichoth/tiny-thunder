@@ -9,11 +9,27 @@ module.exports = csjs`
   }
 
   .product-list-item extends ${grid.cell} {
-    min-width: 15em;
-    max-width: 15em;
-    margin: 0 1em;
     margin-bottom: 2em;
-    padding: 1em;
     border: 1px solid black;
+  }
+
+  .product-list-item .product-image-wrapper {
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+    -webkit-clip-path: url("#clippy-diamond");
+    clip-path: url("#clippy-diamond");
+  }
+
+  .product-item-title {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding-top: 1em;
+    border-top: 1px solid gray;
+    text-transform: uppercase;
+    color: gray;
+    letter-spacing: 0.1em;
   }
 `
