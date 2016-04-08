@@ -29,6 +29,7 @@
     "curry": "^1.2.0",
     "dotenv": "^2.0.0",
     "global": "^4.3.0",
+    "h-buttons": "0.0.3",
     "h-shopping-cart": "0.0.5",
     "moltin": "^1.0.0",
     "node-cb": "0.0.1",

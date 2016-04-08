@@ -1,6 +1,6 @@
 var bel = require('bel')
-var delButton = require('h-buttons/lib/delete')
 var style = require('./product-detail.csjs')
+var buttonStyle = require('h-buttons')
 var loading = require('./loading')
 
 module.exports = function(data) {
@@ -18,9 +18,7 @@ module.exports = function(data) {
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
-        ${delButton(bel.createElement, {
-          style: "width: 2em; height: 2em; opacity: 0.6;"
-        }, [])}
+        <a href="/" class="${style['tt-button-del']}" style="width: 2em; height: 2em;"></a>
       </div>
     `
   }
@@ -42,7 +40,15 @@ module.exports = function(data) {
         <hr>
       </header>
     `
-}
+  }
+
+  function addToCart(ev) {
+    ev.preventDefault()
+    console.log('cart add')
+    data.addToCart(p.id, 1, function(err, resp) {
+      console.log('added', arguments)
+    })
+  }
 
   return bel`
     <div class="tt-product-detail ${style['product-detail-page']}">
@@ -54,7 +60,15 @@ module.exports = function(data) {
 
       <p>
         ${p.description}
+        <span class="tt-price ${style['tt-price']}">${p.price.value}</span>
       </p>
+
+      <hr>
+
+      <div>
+        <a href="#" onclick=${addToCart}>add to cart</a>
+      </div>
+
     </div>
   `
 }

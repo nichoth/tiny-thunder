@@ -10,11 +10,11 @@ module.exports = function(moltin) {
   s.fetch = function() {
     s.isResolving.set(true)
     moltin.Cart.Contents(function onSuccess(cart) {
-      s.isResolving.set(false)
       s.cart.set(cart)
-    }, function onErr(err) {
-      handleErr(err)
       s.isResolving.set(false)
+    }, function onErr(err) {
+      s.isResolving.set(false)
+      handleErr(err)
     })
   }
   return s
