@@ -46,4 +46,8 @@ module.exports = csjs`
     float: right;
   }
 
+  .tt-prod-buttons {
+    text-align: right;
+  }
+
 `

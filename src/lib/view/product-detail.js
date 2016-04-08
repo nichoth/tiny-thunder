@@ -61,6 +61,20 @@ module.exports = function(data) {
     })
   }
 
+  function addButton() {
+    var add = bel`
+      <a href="#" onclick=${addToCart}>add to cart</a>
+    `
+    var view = bel`
+      <a href="/cart">view the cart</a>
+    `
+    var inCart = Object.keys(c.contents).find(function(id) {
+      var item = c.contents[id]
+      return item.id === p.id
+    })
+    return inCart ? view : add
+  }
+
   return bel`
     <div class="tt-product-detail ${style['product-detail-page']}">
       ${nav()}
@@ -76,8 +90,8 @@ module.exports = function(data) {
 
       <hr>
 
-      <div>
-        <a href="#" onclick=${addToCart}>add to cart</a>
+      <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
+        ${p.isResolving || data.cart.isResolving ? '?' : addButton()}
       </div>
 
     </div>

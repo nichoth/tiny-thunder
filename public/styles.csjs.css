@@ -16,48 +16,52 @@
   .sub-links_2BZLzl {
   }
 
-  .product-detail-page_25CMYC {
+  .product-detail-page_Wb6ui {
     text-align: left;
     max-width: 40em;
     margin: 0 auto;
     padding: 1em;
   }
 
-  .product-gallery_25CMYC {
+  .product-gallery_Wb6ui {
   }
 
-  .product-gallery_25CMYC .main-image_25CMYC {
+  .product-gallery_Wb6ui .main-image_Wb6ui {
   }
 
-  .product-gallery_25CMYC .main-image_25CMYC img {
+  .product-gallery_Wb6ui .main-image_Wb6ui img {
     width: 100%;
   }
 
-  .product-detail-page_25CMYC .product-title_25CMYC {
+  .product-detail-page_Wb6ui .product-title_Wb6ui {
     color: gray;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 0.1em;
   }
 
-  .product-nav_25CMYC {
+  .product-nav_Wb6ui {
     padding-bottom: 0.5em;
     border-bottom: 1px solid gray;
     text-align: right;
     margin-bottom: 1em;
   }
 
-  .tt-button-del_25CMYC {
+  .tt-button-del_Wb6ui {
     opacity: 0.6;
   }
 
-  .tt-button-del_25CMYC:hover {
+  .tt-button-del_Wb6ui:hover {
     opacity: 0.4 !important;
   }
 
-  .tt-price_25CMYC {
+  .tt-price_Wb6ui {
     display: inline-block;
     float: right;
+  }
+
+  .tt-prod-buttons_Wb6ui {
+    text-align: right;
   }
 
 
@@ -101,6 +105,10 @@
 
   .product-item-title_4kVEVz a:hover {
     opacity: 1;
+  }
+
+  .tt-qty-btn_4BZhKY {
+    max-width: 3em;
   }
 
   .h-button_266dE2 {

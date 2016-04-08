@@ -10,3 +10,5 @@ We're waiting for a [patch on hyperx](https://github.com/substack/hyperx/pull/24
 * show 404 for categories that don't exist
 * check out service worker for pre-fetching shop products
 * don't make unnecessary requests for cart content. If cart is up to date, just return the cached data.
+* handle errors -- disconnected status
+

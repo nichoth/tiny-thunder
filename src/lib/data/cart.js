@@ -20,6 +20,14 @@ module.exports = function(moltin) {
     })
   }
 
+  function update(moltin, itemId, patch, cb) {
+    moltin.Cart.Update(itemId, patch, function onSuccess(resp) {
+      cb(null, resp)
+    }, function onErr(err) {
+      cb(err)
+    })
+  }
+
   function addToCart(moltin, product, qty, cb) {
     s.isResolving.set(true)
     moltin.Cart.Insert(product.id, qty, function onSuccess(prod) {
@@ -35,7 +43,8 @@ module.exports = function(moltin) {
     state: s,
     actions: {
       getContents: getContents.bind(null, moltin),
-      addToCart: addToCart.bind(null, moltin)
+      addToCart: addToCart.bind(null, moltin),
+      update: update.bind(null, moltin)
     }
   }
 
