@@ -5,17 +5,38 @@ var handleErr = require('../handle-error')
 module.exports = function(moltin) {
   var s = struct({
     isResolving: observ(false),
-    cart: struct({ contents: {} })
+    cart: observ({ contents: {} })
   })
-  s.fetch = function() {
+
+  function getContents(moltin, cb) {
     s.isResolving.set(true)
     moltin.Cart.Contents(function onSuccess(cart) {
       s.cart.set(cart)
       s.isResolving.set(false)
+      cb(null, cart)
     }, function onErr(err) {
       s.isResolving.set(false)
-      handleErr(err)
+      cb(err)
     })
   }
-  return s
+
+  function addToCart(moltin, product, qty, cb) {
+    s.isResolving.set(true)
+    moltin.Cart.Insert(product.id, qty, function onSuccess(prod) {
+      s.isResolving.set(false)
+      cb(null, prod)
+    }, function onErr(err) {
+      s.isResolving.set(false)
+      cb(err)
+    })
+  }
+
+  return {
+    state: s,
+    actions: {
+      getContents: getContents.bind(null, moltin),
+      addToCart: addToCart.bind(null, moltin)
+    }
+  }
+
 }
