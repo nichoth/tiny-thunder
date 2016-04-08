@@ -5,6 +5,7 @@ var loading = require('./loading')
 
 module.exports = function(data) {
   var p = data.product
+  var c = data.cart.cart
   console.log(data)
 
   if (data.isResolving) {
@@ -15,9 +16,19 @@ module.exports = function(data) {
     return img.url.http
   })
 
+  function cartIcon() {
+    var content = data.cart.isResolving ? '?' : c.total_unique_items
+
+    return bel`<span class="tt-cart-icon">
+      <a href="/cart">cart: </a>
+      ${content}
+    </span>`
+  }
+
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
+        ${cartIcon()}
         <a href="/" class="${style['tt-button-del']}" style="width: 2em; height: 2em;"></a>
       </div>
     `
@@ -45,7 +56,7 @@ module.exports = function(data) {
   function addToCart(ev) {
     ev.preventDefault()
     console.log('cart add')
-    data.addToCart(p.id, 1, function(err, resp) {
+    data.addToCart(p, 1, function(err, resp) {
       console.log('added', arguments)
     })
   }

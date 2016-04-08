@@ -10,6 +10,7 @@ module.exports = function(moltin) {
     '/cart': require('./cart').bind(null, cartAdapter),
     '/:category': require('./category').bind(null, cache),
     '/jewelry/:subCategory': require('./sub-category').bind(null, cache),
-    '/product/:productSlug': require('./product-detail').bind(null, cache)
+    '/product/:productSlug': require('./product-detail')
+      .bind(null, cache, cartAdapter)
   }
 }
