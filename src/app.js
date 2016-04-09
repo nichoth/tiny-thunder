@@ -9,11 +9,13 @@ module.exports = function() {
 
   var el = render('')
 
-  moltin.Authenticate(function(auth) {
+  moltin.Authenticate(function onSuccess(auth) {
     var router = Router(moltin)
     router(function onChange(content) {
       update(el, content)
     })
+  }, function onErr(err) {
+    console.log('arr', err)
   })
 
   function render(content) {

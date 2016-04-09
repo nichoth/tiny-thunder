@@ -9,6 +9,7 @@ module.exports = function(moltin) {
   })
 
   function getContents(moltin, cb) {
+    cb = cb || function(){}
     s.isResolving.set(true)
     moltin.Cart.Contents(function onSuccess(cart) {
       s.cart.set(cart)
@@ -28,10 +29,18 @@ module.exports = function(moltin) {
     })
   }
 
+  function del(moltin, id, cb) {
+    moltin.Cart.Remove(id, function onSuccess(resp) {
+      cb(null, resp)
+    }, function onErr(err) {
+      cb(err)
+    })
+  }
+
   function addToCart(moltin, product, qty, cb) {
     s.isResolving.set(true)
-    moltin.Cart.Insert(product.id, qty, function onSuccess(prod) {
-      s.isResolving.set(false)
+    moltin.Cart.Insert(product.id, qty, null, function onSuccess(prod) {
+      getContents(moltin, cb)
       cb(null, prod)
     }, function onErr(err) {
       s.isResolving.set(false)
@@ -44,7 +53,8 @@ module.exports = function(moltin) {
     actions: {
       getContents: getContents.bind(null, moltin),
       addToCart: addToCart.bind(null, moltin),
-      update: update.bind(null, moltin)
+      update: update.bind(null, moltin),
+      remove: del.bind(null, moltin)
     }
   }
 

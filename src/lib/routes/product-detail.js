@@ -6,11 +6,14 @@ module.exports = function(cache, cartAdapter, params) {
   var state = struct({
     isResolving: observ(true),
     product: observ(false),
-    addToCart: observ(function(prod, qty, cb) {
-      console.log('in here', arguments)
-      cartAdapter.actions.addToCart(prod, qty, cb)
-    }),
-    cart: cartAdapter.state
+    cart: cartAdapter.state,
+    actions: {
+      addToCart: function(prod, qty) {
+        cartAdapter.actions.addToCart(prod, qty, function(err, resp) {
+          console.log(resp)
+        })
+      }
+    }
   })
   cache.bySlug(params.productSlug, function(err, prod) {
     if (err) return console.log(err)

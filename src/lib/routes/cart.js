@@ -7,11 +7,22 @@ module.exports = function(adapter) {
     onAction: {
       qtyChange: function(id, qty) {
         update(id, { quantity: qty })
-      }
+      },
+      remove: del
     },
     isUpdating: observ(false),
     cart: adapter.state
   })
+
+  function del(id) {
+    route.isUpdating.set(true)
+    adapter.actions.remove(id, function(err, resp) {
+      route.isUpdating.set(false)
+      if (err) return console.log(err)
+      console.log('success del')
+      adapter.actions.getContents()
+    })
+  }
 
   function update(id, patch) {
     route.isUpdating.set(true)

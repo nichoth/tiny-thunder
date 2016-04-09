@@ -56,9 +56,7 @@ module.exports = function(data) {
   function addToCart(ev) {
     ev.preventDefault()
     console.log('cart add')
-    data.addToCart(p, 1, function(err, resp) {
-      console.log('added', arguments)
-    })
+    data.actions.addToCart(p, 1)
   }
 
   function addButton() {

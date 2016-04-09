@@ -24,9 +24,17 @@ module.exports = function render(data) {
     }
   }
 
+  function onDel(row, ev) {
+    console.log(arguments)
+    ev.preventDefault()
+    data.onAction.remove(row.cartRowId)
+  }
+
   var cartEl = renderCart(bel, xtend(data, {
     rows: Object.keys(cart.cart.contents).map(function(id) {
-      var row = cart.cart.contents[id]
+      var row = xtend(cart.cart.contents[id], {
+        cartRowId: id
+      })
       var rowControls = data.isUpdating ? '' : {
         priceTotal: [
           symbol('= '),
@@ -34,14 +42,12 @@ module.exports = function render(data) {
         ],
         q: [
           symbol('= '),
-          qtyEl(row.quantity, onQtyChange.bind(null, xtend(row, {
-            cartRowId: id
-          })))
+          qtyEl(row.quantity, onQtyChange.bind(null, row))
         ]
       }
 
       return {
-        delete: 'del',
+        delete: bel`<a href="#" onclick=${onDel.bind(null, row)}>del</a>`,
         title: row.title,
         priceEach: ['$' + row.price, symbol(' ea')],
         quantity: rowControls.q,
