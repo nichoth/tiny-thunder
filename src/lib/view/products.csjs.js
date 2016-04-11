@@ -14,6 +14,8 @@ module.exports = csjs`
   }
 
   .product-list-item .product-image-wrapper {
+    transition: opacity 0.3s;
+    display: block;
     opacity: 0.6;
     margin: 0 auto;
     background-repeat: no-repeat;
@@ -22,6 +24,10 @@ module.exports = csjs`
     background-size: contain;
     -webkit-clip-path: url("#clippy-diamond");
     clip-path: url("#clippy-diamond");
+  }
+
+  .product-image-wrapper:hover {
+    opacity: 1;
   }
 
   .product-item-title {

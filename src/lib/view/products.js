@@ -12,8 +12,8 @@ module.exports = function(data) {
   function product(p) {
     return bel`
       <li class="tt-product ${style['product-list-item']}">
-        <div class="${style['product-image-wrapper']}" style="background-image: url('${p.images[0].url.http}')">
-        </div>
+        <a href="/product/${p.slug}" class="${style['product-image-wrapper']}" style="background-image: url('${p.images[0].url.http}')">
+        </a>
         <p class="tt-product-item-text ${style['product-item-title']}">
           <a href="/product/${p.slug}">${p.title}</a>
         </p>
