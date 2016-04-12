@@ -6,6 +6,12 @@ module.exports = csjs`
     height: 150px;
   }
 
+  .half-diamond-item extends .diamond-item {
+    flex: 0.5;
+    position: relative;
+    top: 1.2em;
+  }
+
   .diamond-wrapper {
     display: flex;
     flex-flow: row wrap;

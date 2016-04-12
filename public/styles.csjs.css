@@ -65,22 +65,24 @@
   }
 
 
-  .tt-qty-btn_4BZhKY {
-    max-width: 3em;
-  }
-
-  .diamond-item_2PsYh0 {
+  .diamond-item_PEOcZ {
     flex: 1;
     width: 22em;
     height: 150px;
   }
 
-  .diamond-wrapper_2PsYh0 {
+  .half-diamond-item_PEOcZ {
+    flex: 0.5;
+    position: relative;
+    top: 1.2em;
+  }
+
+  .diamond-wrapper_PEOcZ {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .nav-text_2PsYh0 {
+  .nav-text_PEOcZ {
     position: relative;
     top: 65px;
   }
@@ -131,6 +133,10 @@
 
   .product-item-title_3T7dWU a:hover {
     opacity: 1;
+  }
+
+  .tt-qty-btn_4BZhKY {
+    max-width: 3em;
   }
 
   .h-button_266dE2 {

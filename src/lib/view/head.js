@@ -2,7 +2,29 @@ var logo = require('./logo')
 var style = require('./fancy-nav.csjs')
 var bel = require('bel')
 
-var diamond = function() {
+function halfDiamondL() {
+  return bel`
+    <div class="half-diamond-item ${style['half-diamond-item']}">
+      <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
+        preserveAspectRatio="none">
+        <polyline stroke-width="1.5" stroke="black" points="0,100 100,0" />
+      </svg>
+    </div>
+  `
+}
+
+function halfDiamondR() {
+  return bel`
+    <div class="half-diamond-item ${style['half-diamond-item']}">
+      <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
+        preserveAspectRatio="none">
+        <polyline stroke-width="1.5" stroke="black" points="0,0 100,100" />
+      </svg>
+    </div>
+  `
+}
+
+function diamond() {
   return bel`
     <div class="diamond-item ${style['diamond-item']}">
       <span class="nav-text ${style['nav-text']}">
@@ -10,7 +32,7 @@ var diamond = function() {
       </span>
       <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
         preserveAspectRatio="none">
-        <polyline fill="green" stroke="black"
+        <polyline fill="white" stroke="black"
           points="0,0 50,100, 100,0"
           />
       </svg>
@@ -27,10 +49,11 @@ module.exports = function render (content) {
       </div>
 
       <div class="diamond-wrapper ${style['diamond-wrapper']}">
+        ${halfDiamondL()}
         ${diamond()}
         ${diamond()}
         ${diamond()}
-        ${diamond()}
+        ${halfDiamondR()}
       </div>
 
       ${content}
