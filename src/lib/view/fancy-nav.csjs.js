@@ -1,6 +1,8 @@
 var csjs = require('csjs')
 module.exports = csjs`
   .diamond-item {
+    z-index: 2;
+    pointer-events: none;
     flex: 1;
     width: 22em;
     height: 150px;
@@ -17,7 +19,18 @@ module.exports = csjs`
     flex-flow: row wrap;
   }
 
+  .sub-nav-wrapper extends .diamond-wrapper {
+    z-index: 1;
+    position: relative;
+    bottom: 144px;
+  }
+
+  .sub-nav-wrapper .diamond-item {
+    height: 120px;
+  }
+
   .nav-text {
+    pointer-events: initial;
     position: relative;
     top: 65px;
   }

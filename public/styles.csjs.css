@@ -65,24 +65,37 @@
   }
 
 
-  .diamond-item_PEOcZ {
+  .diamond-item_45JVXT {
+    z-index: 2;
+    pointer-events: none;
     flex: 1;
     width: 22em;
     height: 150px;
   }
 
-  .half-diamond-item_PEOcZ {
+  .half-diamond-item_45JVXT {
     flex: 0.5;
     position: relative;
     top: 1.2em;
   }
 
-  .diamond-wrapper_PEOcZ {
+  .diamond-wrapper_45JVXT {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .nav-text_PEOcZ {
+  .sub-nav-wrapper_45JVXT {
+    z-index: 1;
+    position: relative;
+    bottom: 144px;
+  }
+
+  .sub-nav-wrapper_45JVXT .diamond-item_45JVXT {
+    height: 120px;
+  }
+
+  .nav-text_45JVXT {
+    pointer-events: initial;
     position: relative;
     top: 65px;
   }

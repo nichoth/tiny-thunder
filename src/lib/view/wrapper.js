@@ -5,18 +5,24 @@ var navStyle = require('./nav.csjs')
 var products = require('./products')
 
 module.exports = function(data) {
-  var subLinks = data.subLinks ? nav(data.subLinks) : ''
+
+//   var navEl = bel`
+//     <nav class="${navStyle['main-nav']}">
+//       ${nav(data.links)}
+//       ${subLinks}
+//     </nav>
+//   `
+
+  function a(link) {
+    return bel`<a href="${link.url}">${link.text}</a>`
+  }
+
+  var navEls = data.links.map(a)
+  var subLinks = data.subLinks ? data.subLinks.map(a) : []
 
   return bel`
     <div class="wrapper">
-      ${head(
-        bel`
-          <nav class="${navStyle['main-nav']}">
-            ${nav(data.links)}
-            ${subLinks}
-          </nav>
-        `
-      )}
+      ${head({ nav: navEls, subNav: subLinks })}
       ${products(data)}
 
       <svg class="diamond" width="0" height="0">
