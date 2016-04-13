@@ -1,4 +1,5 @@
 var logo = require('./logo')
+var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
 var bel = require('bel')
 
@@ -59,11 +60,11 @@ module.exports = function render (links) {
 
   return bel`
     <header>
-      <div class="logo-wrapper">
-        ${logo()}
+      <div class="logo-wrapper ${headStyle['logo-wrapper']}">
+        <h1 class="site-name">Tiny Thunder</h1>
       </div>
 
-      <nav>
+      <nav class="main-nav">
         <div class="diamond-wrapper ${style['diamond-wrapper']}">
           ${halfDiamondL()}
           ${links.nav.map(diamond)}
@@ -72,7 +73,7 @@ module.exports = function render (links) {
           ${subNav}
       </nav>
 
-      <svg>
+      <svg width="0" height="0">
         <filter id="dropshadow" height="130%">
           <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
           <feOffset dx="2" dy="2" result="offsetblur"/>

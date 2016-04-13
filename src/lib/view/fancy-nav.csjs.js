@@ -5,7 +5,7 @@ module.exports = csjs`
     pointer-events: none;
     flex: 1;
     width: 22em;
-    height: 150px;
+    height: 90px;
   }
 
   .half-diamond-item extends .diamond-item {
@@ -22,7 +22,7 @@ module.exports = csjs`
   .sub-nav-wrapper extends .diamond-wrapper {
     z-index: 1;
     position: relative;
-    bottom: 144px;
+    bottom: 65px;
   }
 
   .sub-nav-wrapper .diamond-item {
@@ -32,7 +32,7 @@ module.exports = csjs`
   .nav-text {
     pointer-events: initial;
     position: relative;
-    top: 65px;
+    top: 40px;
   }
 
   .nav-text a {

@@ -1,18 +1,9 @@
 var bel = require('bel')
 var head = require('./head')
-//var nav = require('./nav')
-//var navStyle = require('./nav.csjs')
 var products = require('./products')
 var style = require('./fancy-nav.csjs')
 
 module.exports = function(data) {
-
-//   var navEl = bel`
-//     <nav class="${navStyle['main-nav']}">
-//       ${nav(data.links)}
-//       ${subLinks}
-//     </nav>
-//   `
 
   function a(link) {
     var cl = link.activeLink ? style['active-link'] : ''

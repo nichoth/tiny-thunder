@@ -1,40 +1,40 @@
 
-  .diamond-item_1rSwZC {
+  .diamond-item_3lSHn6 {
     z-index: 2;
     pointer-events: none;
     flex: 1;
     width: 22em;
-    height: 150px;
+    height: 90px;
   }
 
-  .half-diamond-item_1rSwZC {
+  .half-diamond-item_3lSHn6 {
     flex: 0.5;
     position: relative;
     top: 1.2em;
   }
 
-  .diamond-wrapper_1rSwZC {
+  .diamond-wrapper_3lSHn6 {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .sub-nav-wrapper_1rSwZC {
+  .sub-nav-wrapper_3lSHn6 {
     z-index: 1;
     position: relative;
-    bottom: 144px;
+    bottom: 65px;
   }
 
-  .sub-nav-wrapper_1rSwZC .diamond-item_1rSwZC {
+  .sub-nav-wrapper_3lSHn6 .diamond-item_3lSHn6 {
     height: 120px;
   }
 
-  .nav-text_1rSwZC {
+  .nav-text_3lSHn6 {
     pointer-events: initial;
     position: relative;
-    top: 65px;
+    top: 40px;
   }
 
-  .nav-text_1rSwZC a {
+  .nav-text_3lSHn6 a {
     font-family: Avenir Next;
     text-transform: uppercase;
     text-decoration: none;
@@ -42,7 +42,7 @@
     letter-spacing: 0.1em;
   }
 
-  .nav-text_1rSwZC a.active-link_1rSwZC {
+  .nav-text_3lSHn6 a.active-link_3lSHn6 {
     font-weight: bold;
   }
 
@@ -94,6 +94,10 @@
     text-align: right;
   }
 
+
+  .logo-wrapper_oTcaI {
+    height: 80vh;
+  }
 
   .product-container_3T7dWU {
     justify-content: space-around;
