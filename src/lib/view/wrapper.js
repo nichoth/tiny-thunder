@@ -1,8 +1,9 @@
 var bel = require('bel')
 var head = require('./head')
-var nav = require('./nav')
-var navStyle = require('./nav.csjs')
+//var nav = require('./nav')
+//var navStyle = require('./nav.csjs')
 var products = require('./products')
+var style = require('./fancy-nav.csjs')
 
 module.exports = function(data) {
 
@@ -14,7 +15,8 @@ module.exports = function(data) {
 //   `
 
   function a(link) {
-    return bel`<a href="${link.url}">${link.text}</a>`
+    var cl = link.activeLink ? style['active-link'] : ''
+    return bel`<a href="${link.url}" class="${cl}">${link.text}</a>`
   }
 
   var navEls = data.links.map(a)

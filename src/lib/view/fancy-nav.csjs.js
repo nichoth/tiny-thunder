@@ -34,4 +34,16 @@ module.exports = csjs`
     position: relative;
     top: 65px;
   }
+
+  .nav-text a {
+    font-family: Avenir Next;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-text a.active-link {
+    font-weight: bold;
+  }
 `
