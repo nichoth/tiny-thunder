@@ -8,5 +8,8 @@
     ]},
     { "name": "vintage" },
     { "name": "more" }
-  ]
+  ],
+  "productUrl": {
+    "prefix": "/product"
+  }
 }

@@ -1,7 +1,9 @@
 var bel = require('bel')
 var style = require('./product-detail.csjs')
+var btnStyle = require('./btns.csjs')
 var buttonStyle = require('h-buttons')
 var loading = require('./loading')
+var backBtn = require('./svg').back
 
 module.exports = function(data) {
   var p = data.product
@@ -28,8 +30,10 @@ module.exports = function(data) {
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
+        <div class="tt-back-btn ${btnStyle['tt-btn']}">
+          <a href="#">${backBtn()}</a>
+        </div>
         ${cartIcon()}
-        <a href="/" class="${style['tt-button-del']}" style="width: 2em; height: 2em;"></a>
       </div>
     `
   }

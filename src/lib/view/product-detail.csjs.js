@@ -27,18 +27,11 @@ module.exports = csjs`
   }
 
   .product-nav {
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 0.5em;
     border-bottom: 1px solid gray;
-    text-align: right;
     margin-bottom: 1em;
-  }
-
-  .tt-button-del extends ${buttonStyle['h-button-delete']} {
-    opacity: 0.6;
-  }
-
-  .tt-button-del:hover {
-    opacity: 0.4 !important;
   }
 
   .tt-price {
