@@ -2,12 +2,20 @@ var Router = require('routes')
 var observ = require('observ')
 var onRoute = require('route-event')
 var four04 = require('../view/404')
+var Routes = require('./routes')
 
 module.exports = function(moltin) {
   var router = Router()
-  var routes = require('./routes')(moltin)
-
   var activeRoute = observ('')
+  var setRoute = onRoute(function(path) {
+    var m = router.match(path)
+    if (!m) {
+      return activeRoute.set(four04())
+    }
+    m.fn(m.params)
+  })
+
+  var routes = Routes(moltin, setRoute)
 
   var stopListening = function(){}
 
@@ -23,14 +31,6 @@ module.exports = function(moltin) {
         activeRoute.set(routeState.render(data))
       })
     })
-  })
-
-  onRoute(function(path) {
-    var m = router.match(path)
-    if (!m) {
-      return activeRoute.set(four04())
-    }
-    m.fn(m.params)
   })
 
   return activeRoute

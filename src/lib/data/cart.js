@@ -3,6 +3,7 @@ var observ = require('observ')
 var handleErr = require('../handle-error')
 
 module.exports = function(moltin) {
+
   var s = struct({
     isResolving: observ(false),
     cart: observ({ contents: {} })
@@ -44,7 +45,15 @@ module.exports = function(moltin) {
       cb(null, prod)
     }, function onErr(err) {
       s.isResolving.set(false)
-      cb(err)
+      cb(arguments)
+    })
+  }
+
+  function complete(moltin, data, cb) {
+    moltin.Cart.Complete(data, function onSuccess(order) {
+      cb(null, order)
+    }, function onErr(err) {
+      cb(arguments)
     })
   }
 
@@ -54,7 +63,8 @@ module.exports = function(moltin) {
       getContents: getContents.bind(null, moltin),
       addToCart: addToCart.bind(null, moltin),
       update: update.bind(null, moltin),
-      remove: del.bind(null, moltin)
+      remove: del.bind(null, moltin),
+      complete: complete.bind(null, moltin)
     }
   }
 

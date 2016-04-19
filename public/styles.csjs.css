@@ -46,29 +46,30 @@
     font-weight: bold;
   }
 
-  .tt-btn_3oKhDt {
+  .tt-btn_1soJSd {
     width: 2em;
     height: 2em;
     display: inline-block;
+    vertical-align: bottom;
   }
 
-  .tt-btn_3oKhDt button {
+  .tt-btn_1soJSd button {
     padding: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
   }
 
-  .tt-btn_3oKhDt button:hover {
+  .tt-btn_1soJSd button:hover {
     opacity: 0.5;
   }
 
-  .tt-btn_3oKhDt svg {
+  .tt-btn_1soJSd svg {
     stroke: black;
     stroke-width: 5;
   }
 
-  .tt-btn_3oKhDt a:hover {
+  .tt-btn_1soJSd a:hover {
     opacity: 0.5;
   }
 
@@ -130,11 +131,11 @@
   }
 
 
-  .tt-checkout_2O1IBV {
+  .tt-checkout_2UT1MA {
     text-align: left;
   }
 
-  .tt-checkout_2O1IBV input {
+  .tt-checkout_2UT1MA input {
     margin-top: 0.2em;
     transition: border 0.25s;
     display: block;
@@ -144,34 +145,52 @@
     border-bottom: 1px solid lightgray;
   }
 
-  .tt-checkout_2O1IBV input:focus {
+  .tt-checkout_2UT1MA input:focus {
     outline: none;
     border-bottom: 1px solid #03A9F4;
   }
 
-  .tt-checkout_2O1IBV label {
+  .tt-checkout_2UT1MA label {
     color: gray;
     font-size: 0.8em;
     display: block;
     margin-bottom: 2em;
   }
 
-  .tt-checkout_2O1IBV input[type="checkbox"] {
+  .tt-form-buttons_2UT1MA {
+    text-align: right;
+  }
+
+  .tt-checkout_2UT1MA input[type="checkbox"] {
     display: inline-block;
     width: auto;
   }
 
-  .tt-checkout_2O1IBV form {
+  .tt-checkout_2UT1MA form {
     width: 100%;
     max-width: 30em;
     margin: 0 auto;
   }
 
-  .tt-checkout_2O1IBV input.hasFocused_2O1IBV:invalid {
+  .tt-checkout_2UT1MA input.hasFocused_2UT1MA:invalid {
     background-color: blue;
   }
 
-  .tt-checkout_2O1IBV input:valid {
+  .tt-checkout_2UT1MA input:valid {
+  }
+
+  .tt-address-line_3a5NEr {
+    display: block;
+  }
+
+  .bottom-controls_2NHi9O {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
   }
 
   .logo-wrapper_oTcaI {

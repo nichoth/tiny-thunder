@@ -4,6 +4,7 @@ module.exports = csjs`
     width: 2em;
     height: 2em;
     display: inline-block;
+    vertical-align: bottom;
   }
 
   .tt-btn button {

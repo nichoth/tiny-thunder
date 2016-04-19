@@ -28,6 +28,10 @@ module.exports = csjs`
     margin-bottom: 2em;
   }
 
+  .tt-form-buttons {
+    text-align: right;
+  }
+
   .tt-checkout input[type="checkbox"] {
     display: inline-block;
     width: auto;

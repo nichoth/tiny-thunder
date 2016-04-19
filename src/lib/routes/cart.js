@@ -39,5 +39,6 @@ module.exports = function(adapter) {
   adapter.actions.getContents(function(err, cart) {
     if (err) return console.log(err, err.response.body)
   })
+
   return route
 }

@@ -21,13 +21,13 @@ We're waiting for a [patch on hyperx](https://github.com/substack/hyperx/pull/24
 ### pages
 * checkout pages (forms)  
   **/cart/checkout** -- show form to collect information  
-  **/cart/complete** -- show summary of order info, button to place order  
+  **/cart/review** -- show summary of order info, button to place order  
 * build out cart view
 
 ### fix
 * back button in product detail page needs the right URL
 
-### others
+### other
 * unit tests
 
 
