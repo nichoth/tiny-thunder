@@ -8,5 +8,9 @@
     ]},
     { "name": "vintage" },
     { "name": "more" }
-  ]
+  ],
+  "productUrl": {
+    "prefix": "/product"
+  },
+  "shippingId": "1202334021099455018"
 }

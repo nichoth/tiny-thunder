@@ -6,6 +6,52 @@ body {
   min-height: 100vh;
 }
 
+.tt-review-section h2 {
+  text-transform: uppercase;
+  color: gray;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.tt-cart-review-page {
+  text-align: left;
+  padding: 1em;
+}
+
+.tt-form-controls button {
+  margin: 0 2em;
+}
+
+.tt-form-controls.tt-review-section {
+  margin-left: -2em;
+}
+
+.tt-cart-review {
+  padding: 1em;
+  display: -webkit-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -1em;
+}
+
+.tt-review-section {
+  -webkit-box-flex: 1;
+          flex: 1;
+  padding-left: 1em;
+}
+
+.tt-review-section h2 {
+  border-bottom: 1px solid gray;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 nav.main-nav {
   margin-top: -1.4em;
   position: fixed;
