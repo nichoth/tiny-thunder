@@ -1,9 +1,15 @@
+$specialFont: 'Playfair Display', serif;
+
 body {
   font-family: avenir next, sans-serif;
   padding: 0;
   margin: 0;
   text-align: center;
   min-height: 100vh;
+}
+
+#content {
+  margin-bottom: 4em;
 }
 
 %head-treatment {
@@ -106,3 +112,37 @@ h1.site-name {
   padding: 1em;
 }
 
+
+/* buttons */
+.tt-prod-buttons {
+  margin-top: 2em;
+}
+
+.tt-button, .tt-button-primary {
+  font-weight: bold;
+  box-shadow: 4px 4px 4px #ccc;
+  text-transform: uppercase;
+  border: 2px solid gray;
+  padding: 0.6em 1em;
+  letter-spacing: 0.1em;
+  color: gray;
+  &:hover {
+    text-decoration: none;
+    border: 2px solid black;
+    color: black;
+  }
+}
+
+.tt-product-desc {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.tt-price {
+  position: relative;
+  bottom: 0.4em;
+  color: darkslategray;
+  font-size: 2em;
+  font-family: $specialFont;
+
+}

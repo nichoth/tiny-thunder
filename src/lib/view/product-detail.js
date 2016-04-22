@@ -1,8 +1,10 @@
 var bel = require('bel')
+var spinner = require('./spinner')
 var style = require('./product-detail.csjs')
 var btnStyle = require('./btns.csjs')
 var buttonStyle = require('h-buttons')
-var loading = require('./loading')
+//var loading = require('./loading')
+var loading = require('./spinner')
 var backBtn = require('./svg').back
 
 module.exports = function(data) {
@@ -21,10 +23,15 @@ module.exports = function(data) {
   function cartIcon() {
     var content = data.cart.isResolving ? '?' : c.total_unique_items
 
-    return bel`<span class="tt-cart-icon">
-      <a href="/cart">cart: </a>
-      ${content}
-    </span>`
+    return bel`
+      <a title="view cart" href="/cart" class="tt-cart-icon ${style['tt-cart-icon']}">
+        <span class="tt-cart-qty ${style['tt-cart-qty']}">${content}</span>
+        <svg stroke="black" stroke-width="6" class="cart-icon" width="100%" height="100%" viewBox="0 0 100 100"
+          preserveAspectRatio="none">
+          <path d="M5 8 L 25 8 L 60 70 L 95 5" fill="none" stroke-linejoin="miter" />
+        </svg>
+      </a>
+    `
   }
 
   function nav() {
@@ -65,10 +72,10 @@ module.exports = function(data) {
 
   function addButton() {
     var add = bel`
-      <a href="#" onclick=${addToCart}>add to cart</a>
+      <a class="tt-button" href="#" onclick=${addToCart}>add to cart</a>
     `
     var view = bel`
-      <a href="/cart">view the cart</a>
+      <a class="tt-button" href="/cart">view cart</a>
     `
     var inCart = Object.keys(c.contents).find(function(id) {
       var item = c.contents[id]
@@ -85,7 +92,7 @@ module.exports = function(data) {
 
       ${head()}
 
-      <p>
+      <p class="tt-product-desc">
         ${p.description}
         <span class="tt-price ${style['tt-price']}">${p.price.value}</span>
       </p>
@@ -93,7 +100,7 @@ module.exports = function(data) {
       <hr>
 
       <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
-        ${p.isResolving || data.cart.isResolving ? '?' : addButton()}
+        ${p.isResolving || data.cart.isResolving ? spinner() : addButton()}
       </div>
 
     </div>
