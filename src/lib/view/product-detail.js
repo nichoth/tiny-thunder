@@ -1,10 +1,9 @@
 var bel = require('bel')
-var spinner = require('./spinner')
 var style = require('./product-detail.csjs')
+var cartIcon = require('./cart-icon')
 var btnStyle = require('./btns.csjs')
 var buttonStyle = require('h-buttons')
-//var loading = require('./loading')
-var loading = require('./spinner')
+var loading = require('./loading')
 var backBtn = require('./svg').back
 
 module.exports = function(data) {
@@ -20,27 +19,16 @@ module.exports = function(data) {
     return img.url.http
   })
 
-  function cartIcon() {
-    var content = data.cart.isResolving ? '?' : c.total_unique_items
-
-    return bel`
-      <a title="view cart" href="/cart" class="tt-cart-icon ${style['tt-cart-icon']}">
-        <span class="tt-cart-qty ${style['tt-cart-qty']}">${content}</span>
-        <svg stroke="black" stroke-width="6" class="cart-icon" width="100%" height="100%" viewBox="0 0 100 100"
-          preserveAspectRatio="none">
-          <path d="M5 8 L 25 8 L 60 70 L 95 5" fill="none" stroke-linejoin="miter" />
-        </svg>
-      </a>
-    `
-  }
-
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
         <div class="tt-back-btn ${btnStyle['tt-btn']}">
           <a href="#">${backBtn()}</a>
         </div>
-        ${cartIcon()}
+        ${cartIcon({
+          isResolving: c.isResolving,
+          total: c.total_unique_items
+        })}
       </div>
     `
   }

@@ -1,4 +1,5 @@
 var logo = require('./logo')
+var cartIcon = require('./cart-icon')
 var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
 var bel = require('bel')
@@ -10,6 +11,9 @@ var dFilter = ''
 function halfDiamondL() {
   return bel`
     <div class="half-diamond-item ${style['half-diamond-item']}">
+      <span class="nav-text ${style['nav-text-left']}">
+        home
+      </span>
       <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
         preserveAspectRatio="none">
         <polyline fill="white" stroke-width="0.75" stroke="transparent"
@@ -23,7 +27,10 @@ function halfDiamondL() {
 
 function halfDiamondR() {
   return bel`
-    <div class="half-diamond-item ${style['half-diamond-item']}">
+    <div class="half-diamond-item ${style['half-diamond-item']} ${style['half-diamond-r']}">
+      <span class="nav-text ${style['nav-text-right']}">
+        ${cartIcon()}
+      </span>
       <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
         preserveAspectRatio="none">
         <polyline fill="white" stroke-width=".75" stroke="transparent"
@@ -49,7 +56,9 @@ function diamond(link) {
   `
 }
 
-module.exports = function render (links) {
+module.exports = function render (data) {
+  var links = data.links
+
   var subNav = links.subNav.length ?
     bel`<div class="sub-nav-wrapper ${style['sub-nav-wrapper']}">
       ${links.subNav.map(function(link) {
