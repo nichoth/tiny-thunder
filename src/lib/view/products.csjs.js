@@ -13,6 +13,10 @@ module.exports = csjs`
     margin-bottom: 4em;
   }
 
+  .product-list-item > a {
+    display: block;
+  }
+
   .product-list-item .product-image-wrapper {
     opacity: 0.6;
     transition: opacity 0.3s;

@@ -16,12 +16,14 @@ module.exports = function(cache, cartAdapter, params) {
     }
   })
   cache.bySlug(params.productSlug, function(err, prod) {
-    if (err) return console.log(err)
+    if (err) {
+      state.isResolving.set(false)
+      return console.log(err)
+    }
     state.product.set(prod)
     state.isResolving.set(false)
   })
   cartAdapter.actions.getContents(function(err, res) {
-
   })
   state.render = productView
   return state

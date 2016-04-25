@@ -1,10 +1,12 @@
 var bel = require('bel')
 var style = require('./product-detail.csjs')
-var cartIcon = require('./cart-icon')
-var btnStyle = require('./btns.csjs')
-var buttonStyle = require('h-buttons')
-var loading = require('./loading')
-var backBtn = require('./svg').back
+var cartIcon = require('./components/cart-icon')
+var button = require('./components/button.js')
+//var btnStyle = require('./btns.csjs')
+//var buttonStyle = require('h-buttons')
+var loading = require('./components/spinner')
+var buttonBack = require('./components/button-back')
+//var backBtn = require('./svg').back
 
 module.exports = function(data) {
   var p = data.product
@@ -22,9 +24,7 @@ module.exports = function(data) {
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
-        <div class="tt-back-btn ${btnStyle['tt-btn']}">
-          <a href="#">${backBtn()}</a>
-        </div>
+        ${buttonBack()}
         ${cartIcon({
           isResolving: c.isResolving,
           total: c.total_unique_items
@@ -59,12 +59,13 @@ module.exports = function(data) {
   }
 
   function addButton() {
-    var add = bel`
-      <a class="tt-button" href="#" onclick=${addToCart}>add to cart</a>
-    `
-    var view = bel`
-      <a class="tt-button" href="/cart">view cart</a>
-    `
+    var add = button({
+      href: '#',
+      onclick: addToCart
+    }, 'add to cart')
+
+    var view = button({ href: '/cart' }, 'view cart')
+
     var inCart = Object.keys(c.contents).find(function(id) {
       var item = c.contents[id]
       return item.id === p.id
@@ -80,15 +81,16 @@ module.exports = function(data) {
 
       ${head()}
 
-      <p class="tt-product-desc">
-        ${p.description}
-        <span class="tt-price ${style['tt-price']}">${p.price.value}</span>
-      </p>
+      <div class="tt-product-desc">
+        <p class="tt-prod-desc-text">${p.description}</p>
+        <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
+      </div>
+
 
       <hr>
 
       <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
-        ${p.isResolving || data.cart.isResolving ? spinner() : addButton()}
+        ${p.isResolving || data.cart.isResolving ? loading() : addButton()}
       </div>
 
     </div>

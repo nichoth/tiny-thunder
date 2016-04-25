@@ -1,5 +1,5 @@
 var csjs = require('csjs')
-var ciStyle = require('./cart-icon.csjs')
+var ciStyle = require('./components/cart-icon.csjs')
 module.exports = csjs`
   .diamond-item {
     z-index: 2;

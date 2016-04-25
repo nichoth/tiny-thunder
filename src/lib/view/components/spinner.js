@@ -3,6 +3,6 @@ var style = require('./spinner.csjs')
 
 module.exports = function() {
   return bel`
-    <div class="${style['loader']}">Loading</div>
+    <div class="loader ${style['loader']}"></div>
   `
 }

@@ -16,6 +16,7 @@ module.exports = csjs`
   }
 
   .button-row {
+    margin-top: 1em;
     text-align: right;
   }
 `

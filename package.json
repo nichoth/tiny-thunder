@@ -25,7 +25,9 @@
   "homepage": "https://github.com/nichoth/tiny-thunder#readme",
   "private": true,
   "dependencies": {
+    "after": "^0.8.1",
     "array-range": "^1.0.1",
+    "arrify": "^1.0.1",
     "async-waterfall": "^0.1.5",
     "curry": "^1.2.0",
     "dotenv": "^2.0.0",
@@ -42,7 +44,7 @@
     "observ-array": "^3.2.1",
     "observ-struct": "^6.0.0",
     "observify": "^1.1.2",
-    "route-event": "1.0.0",
+    "route-event": "1.0.1",
     "routes": "^2.1.0",
     "slug": "https://github.com/nichoth/node-slug/tarball/master",
     "update-el": "0.0.1",

@@ -1,5 +1,5 @@
 
-  .diamond-item_4A15zK {
+  .diamond-item_SorG8 {
     z-index: 2;
     pointer-events: none;
     flex: 1;
@@ -7,42 +7,42 @@
     height: 90px;
   }
 
-  .half-diamond-item_4A15zK {
+  .half-diamond-item_SorG8 {
     flex: 0.5;
   }
 
-  .half-diamond-r_4A15zK {
+  .half-diamond-r_SorG8 {
     position: relative;
     bottom: 1.6em;
   }
 
-  .diamond-wrapper_4A15zK {
+  .diamond-wrapper_SorG8 {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .sub-nav-wrapper_4A15zK {
+  .sub-nav-wrapper_SorG8 {
     z-index: 1;
     position: relative;
     bottom: 65px;
   }
 
-  .sub-nav-wrapper_4A15zK .diamond-item_4A15zK {
+  .sub-nav-wrapper_SorG8 .diamond-item_SorG8 {
     height: 120px;
   }
 
-  .nav-text_4A15zK {
+  .nav-text_SorG8 {
     pointer-events: initial;
     position: relative;
     top: 40px;
   }
 
-  .nav-text-left_4A15zK {
+  .nav-text-left_SorG8 {
     top: 30px;
     right: 2em;
   }
 
-  .nav-text-right_4A15zK {
+  .nav-text-right_SorG8 {
     top: 64px;
     left: 4em;
     display: block;
@@ -50,11 +50,11 @@
     height: 3em;
   }
 
-  .nav-text-right_4A15zK .tt-cart-qty_1yQARd {
+  .nav-text-right_SorG8 .tt-cart-qty_2FoUGS {
     left: 0.35em;
   }
 
-  .nav-text_4A15zK a {
+  .nav-text_SorG8 a {
     font-family: Avenir Next;
     text-transform: uppercase;
     text-decoration: none;
@@ -62,51 +62,8 @@
     letter-spacing: 0.1em;
   }
 
-  .nav-text_4A15zK a.active-link_4A15zK {
+  .nav-text_SorG8 a.active-link_SorG8 {
     font-weight: bold;
-  }
-
-  .tt-btn_1soJSd {
-    width: 2em;
-    height: 2em;
-    display: inline-block;
-    vertical-align: bottom;
-  }
-
-  .tt-btn_1soJSd button {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  .tt-btn_1soJSd button:hover {
-    opacity: 0.5;
-  }
-
-  .tt-btn_1soJSd svg {
-    stroke: black;
-    stroke-width: 5;
-  }
-
-  .tt-btn_1soJSd a:hover {
-    opacity: 0.5;
-  }
-
-  .tt-cart_2jUNIk {
-    padding: 1em;
-  }
-
-  .tt-qty-btn_2jUNIk {
-    max-width: 3em;
-  }
-
-  .tt-cart_2jUNIk .cell_3VvqlD, .tt-cart_2jUNIk .cell-title_3VvqlD {
-    align-self: center;
-  }
-
-  .button-row_2jUNIk {
-    text-align: right;
   }
 
 
@@ -151,6 +108,23 @@
     text-align: right;
   }
 
+
+  .tt-cart_jYplM {
+    padding: 1em;
+  }
+
+  .tt-qty-btn_jYplM {
+    max-width: 3em;
+  }
+
+  .tt-cart_jYplM .cell_3VvqlD, .tt-cart_jYplM .cell-title_3VvqlD {
+    align-self: center;
+  }
+
+  .button-row_jYplM {
+    margin-top: 1em;
+    text-align: right;
+  }
 
   .tt-checkout_2UT1MA {
     text-align: left;
@@ -200,36 +174,26 @@
   .tt-checkout_2UT1MA input:valid {
   }
 
-  .tt-address-line_3a5NEr {
-    display: block;
-  }
-
-  .bottom-controls_2NHi9O {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    padding-bottom: 1em;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-
   .logo-wrapper_oTcaI {
     height: 80vh;
   }
 
-  .product-container_1v1f9F {
+  .product-container_2cjbkm {
     justify-content: space-around;
     list-style: none;
     padding: 0;
   }
 
-  .product-list-item_1v1f9F {
+  .product-list-item_2cjbkm {
     margin: 0 2em;
     margin-bottom: 4em;
   }
 
-  .product-list-item_1v1f9F .product-image-wrapper_1v1f9F {
+  .product-list-item_2cjbkm > a {
+    display: block;
+  }
+
+  .product-list-item_2cjbkm .product-image-wrapper_2cjbkm {
     opacity: 0.6;
     transition: opacity 0.3s;
     display: block;
@@ -242,12 +206,12 @@
     clip-path: url("#clippy-diamond");
   }
 
-  .product-list-item_1v1f9F:hover .product-image-wrapper_1v1f9F,
-  .product-list-item_1v1f9F:hover .product-item-title_1v1f9F {
+  .product-list-item_2cjbkm:hover .product-image-wrapper_2cjbkm,
+  .product-list-item_2cjbkm:hover .product-item-title_2cjbkm {
     opacity: 1;
   }
 
-  .product-item-title_1v1f9F {
+  .product-item-title_2cjbkm {
     color: black;
     text-decoration: none;
     transition: opacity 0.3s;
@@ -261,53 +225,43 @@
   }
 
 
-  .tt-cart-icon_1yQARd {
+  .tt-cart-icon_2FoUGS {
     width: 3em;
     height: 3em;
     margin-bottom: -1em;
   }
 
-  .tt-cart-icon_1yQARd:hover {
+  .tt-cart-icon_2FoUGS:hover {
     text-decoration: none;
     opacity: 0.6;
   }
 
-  .tt-cart-icon_1yQARd svg {
+  .tt-cart-icon_2FoUGS svg {
     position: relative;
-    bottom: 0.4em;
+    bottom: 1.4em;
   }
 
-  .tt-cart-qty_1yQARd {
+  .tt-cart-qty_2FoUGS {
     color: darkslategray;
     position: relative;
     left: 1.5em;
     font-weight: bold;
   }
 
-  .h-button_266dE2 {
+  .button_1t4p3H {
     display: inline-block;
-    cursor: pointer;
-    background-color: transparent;
-    background-size: contain;
-    padding: 0;
-    width: 1em;
-    height: 1em;
-    border: none;
+    font-weight: bold;
+    box-shadow: 4px 4px 4px #ccc;
+    text-transform: uppercase;
+    border: 2px solid gray;
+    padding: 0.6em 1em;
+    letter-spacing: 0.1em;
+    color: gray;
   }
-  .h-button_266dE2:hover {
-    opacity: 0.6;
-  }
-  .h-button-delete_266dE2 {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACoElEQVR4Xt3b61XDMAyG4a8TwCiMABvABJQNYBLYADoJjMAosAFHPVVPcJ1YtiX5kl9Ay+V96iTFiXf4v70COAD4Dr4+y6c3AB4BvHDQblH2DmAP4AfA3YQIFP8J4BrAB4AnamcAjmeP2RCW8dx4RCCAMH42hFj8GYEAaNgTQmwbfSRsxVPvcQTQNiNCMp6OBcuD4EwIovjlQZCH/wwI4vgYwOi7w1b8L4Db8PS+3AWWB8ERR0J2/NoIYIj70xuGq8jpobezQ1F8CoAepx/8BaBnhOJ4CUDvCFXxUoBeEarjcwB6Q1CJzwXoBUEtvgSgNYJqfClAKwT1+BoAbwST+FoALwSzeA0AawTTeC0AKwTzeE0AbQSXeG0ALQS3eAuAWgTXeCuAUgT3eEuAXIQm8dYAUgR6Hl+xoY+XW3QaK3xSzedrU2I1PzP83tSkCj2fLle5x3uMAI7aQohhm7/y/Es9RkAuglu85wiQIrjGtwJYO+DR3+M+2+y9C2zF8yhxRfACSF2uCg+EbggeAKk3ORTf7LqDNUAqnq7V0dbs4oslgCSeb8ZKvVkyu2fJCiAnXnKKNDsmWACUxDdD0AaoiW+CoAmgEe+OoAWgGe+KoAFgEe+GUAtgGe+CUAPgEW+OUArgGW+KUALQIt4MIRegZbwJQg5AD/HqCFIAumeQ7ihvNnsbmTlV+QdKArB116j7HF4AUY2QAug5Xro7PJzmG2LT7+clM7EHR4iXINBzaH0QLZG52Epulm497KOvZOK23lWEGMBIr3yIkboCdTESQoCR44t2B+mSmV6HffXuIFk0NVp81khILZsbNV6MQAB0eqD1tOE2erwE4cC7QIgwS/wWAi0S3y8PgowwW3wM4RhPD4SnwbfTLjHz8nkKf2aVP1lYT0/xwI9yAAAAAElFTkSuQmCC');
-  }
-
-  .row_3ehaEf {
-    display: flex;
-    flex-flow: row wrap;
-  }
-
-  .cell_3ehaEf {
-    flex: 1;
+  .button_1t4p3H:hover {
+    text-decoration: none;
+    border: 2px solid black;
+    color: black;
   }
 
 .loader_yw2P9:before,
@@ -367,6 +321,59 @@
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+  .row_3ehaEf {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .cell_3ehaEf {
+    flex: 1;
+  }
+
+  .h-button_266dE2 {
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    background-size: contain;
+    padding: 0;
+    width: 1em;
+    height: 1em;
+    border: none;
+  }
+  .h-button_266dE2:hover {
+    opacity: 0.6;
+  }
+  .h-button-delete_266dE2 {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACoElEQVR4Xt3b61XDMAyG4a8TwCiMABvABJQNYBLYADoJjMAosAFHPVVPcJ1YtiX5kl9Ay+V96iTFiXf4v70COAD4Dr4+y6c3AB4BvHDQblH2DmAP4AfA3YQIFP8J4BrAB4AnamcAjmeP2RCW8dx4RCCAMH42hFj8GYEAaNgTQmwbfSRsxVPvcQTQNiNCMp6OBcuD4EwIovjlQZCH/wwI4vgYwOi7w1b8L4Db8PS+3AWWB8ERR0J2/NoIYIj70xuGq8jpobezQ1F8CoAepx/8BaBnhOJ4CUDvCFXxUoBeEarjcwB6Q1CJzwXoBUEtvgSgNYJqfClAKwT1+BoAbwST+FoALwSzeA0AawTTeC0AKwTzeE0AbQSXeG0ALQS3eAuAWgTXeCuAUgT3eEuAXIQm8dYAUgR6Hl+xoY+XW3QaK3xSzedrU2I1PzP83tSkCj2fLle5x3uMAI7aQohhm7/y/Es9RkAuglu85wiQIrjGtwJYO+DR3+M+2+y9C2zF8yhxRfACSF2uCg+EbggeAKk3ORTf7LqDNUAqnq7V0dbs4oslgCSeb8ZKvVkyu2fJCiAnXnKKNDsmWACUxDdD0AaoiW+CoAmgEe+OoAWgGe+KoAFgEe+GUAtgGe+CUAPgEW+OUArgGW+KUALQIt4MIRegZbwJQg5AD/HqCFIAumeQ7ihvNnsbmTlV+QdKArB116j7HF4AUY2QAug5Xro7PJzmG2LT7+clM7EHR4iXINBzaH0QLZG52Epulm497KOvZOK23lWEGMBIr3yIkboCdTESQoCR44t2B+mSmV6HffXuIFk0NVp81khILZsbNV6MQAB0eqD1tOE2erwE4cC7QIgwS/wWAi0S3y8PgowwW3wM4RhPD4SnwbfTLjHz8nkKf2aVP1lYT0/xwI9yAAAAAElFTkSuQmCC');
+  }
+
+  .tt-btn-icon_2iqMi7 {
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .tt-btn-icon_2iqMi7 button {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .tt-btn-icon_2iqMi7 button:hover {
+    opacity: 0.5;
+  }
+
+  .tt-btn-icon_2iqMi7 svg {
+    stroke: black;
+    stroke-width: 5;
+  }
+
+  .tt-btn-icon_2iqMi7 a:hover {
+    opacity: 0.5;
+  }
 
   .cart_3VvqlD {
   }

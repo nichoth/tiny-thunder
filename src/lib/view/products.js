@@ -1,5 +1,5 @@
 var bel = require('bel')
-var loading = require('./loading')
+var loading = require('./components/spinner')
 var style = require('./products.csjs')
 
 module.exports = function(data) {

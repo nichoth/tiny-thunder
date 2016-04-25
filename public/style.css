@@ -135,15 +135,27 @@ h1.site-name {
 }
 
 .tt-product-desc {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.tt-prod-desc-text {
 }
 
 .tt-price {
-  position: relative;
-  bottom: 0.4em;
+  margin-left: 1.5em;
+  padding-left: 1.5em;
+  border-left: 1px solid lightgray;
   color: darkslategray;
   font-size: 2em;
   font-family: 'Playfair Display',serif;
 
+}
+
+.tt-product-detail .tt-prod-buttons .loader {
+  display: inline-block;
 }

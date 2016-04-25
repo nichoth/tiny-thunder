@@ -1,5 +1,5 @@
 var logo = require('./logo')
-var cartIcon = require('./cart-icon')
+var cartIcon = require('./components/cart-icon')
 var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
 var bel = require('bel')

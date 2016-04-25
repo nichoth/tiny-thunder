@@ -13,7 +13,7 @@ module.exports = csjs`
 
   .tt-cart-icon svg {
     position: relative;
-    bottom: 0.4em;
+    bottom: 1.4em;
   }
 
   .tt-cart-qty {

@@ -11,7 +11,7 @@ var xtend = require('xtend')
 var hForm = require('virtual-form')
 var getFormData = require('form-data-set')
 var style = require('./checkout.csjs')
-var config = require('../../config.json')
+var config = require('../../../config.json')
 
 module.exports = render
 

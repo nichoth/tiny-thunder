@@ -18,6 +18,6 @@ module.exports = function(moltin, setRoute) {
       setRoute: setRoute,
       setOrderInfo: orderModel.state.info.set.bind(orderModel.info)
     }),
-    '/cart/review': require('./order-review').bind(null, cartAdapter, orderModel)
+    //'/cart/review': require('./order-review').bind(null, cartAdapter, orderModel)
   }
 }
