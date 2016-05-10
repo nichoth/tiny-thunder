@@ -1,4 +1,5 @@
 var bel = require('bel')
+var logoIcon = require('../components/logo-icon')
 var xtend = require('xtend')
 var renderCart = require('h-shopping-cart')
 var buttonDel = require('../components/button-del')
@@ -7,14 +8,12 @@ var loading = require('../components/spinner')
 var qtyEl = require('./quantity')
 var style = require('./cart.csjs')
 var config = require('../../../config.json')
+var head = require('../components/checkout-head')
+var stickyNav = require('../components/sticky-nav')
 
 module.exports = function render(data) {
   var cart = data.cart
   console.log(data)
-
-  if (cart.isResolving) {
-    return loading()
-  }
 
   function symbol(content) {
     return bel.createElement('span.mod', {
@@ -87,10 +86,15 @@ module.exports = function render(data) {
     `
   }
 
+  var content = [ cartEl, controls() ]
+
   return bel`
     <div class="tt-cart ${style['tt-cart']}">
-      ${cartEl}
-      ${controls()}
+      ${head('cart')}
+      ${stickyNav([
+        logoIcon()
+      ])}
+      ${cart.isResolving ? loading() : content}
     </div>
   `
 

@@ -14,10 +14,7 @@ module.exports = function(moltin, setRoute) {
     '/jewelry/:subCategory': require('./sub-category').bind(null, cache),
     '/product/:productSlug': require('./product-detail')
       .bind(null, cache, cartAdapter),
-    '/cart/checkout': require('./checkout').bind(null, cartAdapter, {
-      setRoute: setRoute,
-      setOrderInfo: orderModel.state.info.set.bind(orderModel.info)
-    }),
+    '/cart/checkout': require('./checkout').bind(null, cartAdapter, orderModel),
     //'/cart/review': require('./order-review').bind(null, cartAdapter, orderModel)
   }
 }

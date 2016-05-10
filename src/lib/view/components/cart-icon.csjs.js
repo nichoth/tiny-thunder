@@ -1,6 +1,8 @@
 var csjs = require('csjs')
 module.exports = csjs`
   .tt-cart-icon {
+    display: block;
+    text-align: left;
     width: 3em;
     height: 3em;
     margin-bottom: -1em;

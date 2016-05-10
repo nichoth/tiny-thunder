@@ -6,6 +6,16 @@ body {
   min-height: 100vh;
 }
 
+input {
+  font-size: 1em;
+  font-size: 1rem;
+}
+
+.tt-checkout input[type=number]::-webkit-inner-spin-button, .tt-checkout input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #content {
   margin-bottom: 4em;
 }
@@ -133,6 +143,11 @@ h1.site-name {
   border: 2px solid black;
   color: black;
 }
+
+/*
+  product detail page
+  -----------------------
+*/
 
 .tt-product-desc {
   display: -webkit-box;

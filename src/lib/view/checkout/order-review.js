@@ -1,7 +1,6 @@
 var bel = require('bel')
 var h = bel.createElement
 var style = require('./order-review.csjs')
-var gStyles = require('./generic-styles.csjs')
 
 module.exports = function(data) {
   console.log(data)

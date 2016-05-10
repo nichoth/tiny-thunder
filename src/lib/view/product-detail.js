@@ -1,12 +1,11 @@
 var bel = require('bel')
 var style = require('./product-detail.csjs')
 var cartIcon = require('./components/cart-icon')
+var logoIcon = require('./components/logo-icon')
 var button = require('./components/button.js')
-//var btnStyle = require('./btns.csjs')
-//var buttonStyle = require('h-buttons')
 var loading = require('./components/spinner')
 var buttonBack = require('./components/button-back')
-//var backBtn = require('./svg').back
+var stickyNav = require('./components/sticky-nav')
 
 module.exports = function(data) {
   var p = data.product
@@ -75,22 +74,32 @@ module.exports = function(data) {
 
   return bel`
     <div class="tt-product-detail ${style['product-detail-page']}">
-      ${nav()}
+
+
+      ${stickyNav([
+        buttonBack(),
+        logoIcon(),
+        cartIcon({
+          isResolving: c.isResolving,
+          total: c.total_unique_items
+        })
+      ])}
 
       ${imageGallery(images)}
 
-      ${head()}
+      <div class="${style['product-description']}">
+        ${head()}
 
-      <div class="tt-product-desc">
-        <p class="tt-prod-desc-text">${p.description}</p>
-        <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
-      </div>
+        <div class="tt-product-desc">
+          <p class="tt-prod-desc-text">${p.description}</p>
+          <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
+        </div>
 
+        <hr>
 
-      <hr>
-
-      <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
-        ${p.isResolving || data.cart.isResolving ? loading() : addButton()}
+        <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
+          ${p.isResolving || data.cart.isResolving ? loading() : addButton()}
+        </div>
       </div>
 
     </div>
