@@ -53,16 +53,6 @@ input {
   margin-left: -1em;
 }
 
-.tt-review-section {
-  flex: 1;
-  padding-left: 1em;
-  h2 {
-    @extend %head-treatment;
-    border-bottom: 1px solid gray;
-  }
-}
-
-
 a {
   text-decoration: none;
 }

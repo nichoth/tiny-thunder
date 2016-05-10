@@ -20,13 +20,6 @@ input {
   margin-bottom: 4em;
 }
 
-.tt-review-section h2 {
-  text-transform: uppercase;
-  color: gray;
-  font-weight: 400;
-  font-size: 1em;
-}
-
 .tt-cart-review-page {
   text-align: left;
   padding: 1em;
@@ -46,16 +39,6 @@ input {
   display: flex;
   flex-flow: row wrap;
   margin-left: -1em;
-}
-
-.tt-review-section {
-  -webkit-box-flex: 1;
-          flex: 1;
-  padding-left: 1em;
-}
-
-.tt-review-section h2 {
-  border-bottom: 1px solid gray;
 }
 
 a {

@@ -36,6 +36,11 @@ module.exports = csjs`
     margin-right: 0;
   }
 
+  .field-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
   .tt-checkout fieldset {
     padding-bottom: 0;
     margin-bottom: 2em;
@@ -48,27 +53,21 @@ module.exports = csjs`
     padding: 0 1em;
   }
 
-  .field-container {
-    display: flex;
-    flex-flow: row wrap;
-  }
-
   .tt-form-buttons {
-    //margin-top: 1em;
+    box-shadow: 0px -10px 15px white;
     text-align: right;
     padding-bottom: 1em;
+    padding-top: 1em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid;
   }
 
   .tt-form-buttons button {
     margin-right: 2em;
-  }
-
-  .tt-form-buttons button:last-child {
-    margin-right: 0;
-  }
-
-  .tt-review .tt-form-buttons {
-    flex: 1;
   }
 
   .tt-checkout input[type="checkbox"] {
@@ -76,34 +75,10 @@ module.exports = csjs`
     width: auto;
   }
 
-  .tt-checkout form {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .tt-checkout input.hasFocused:invalid {
-    background-color: blue;
-  }
-
-  .tt-checkout input:valid {
-  }
 
   .tt-checkout.tt-review {
     max-width: initial;
-  }
-
-  .summary {
-    display: flex;
-    margin-left: -1em;
-    padding: 0 2em;
-    margin-bottom: 3em;
-  }
-
-  .tt-address-line {
-    display: block;
-  }
-
-  .tt-review-section {
+    padding: 1em;
   }
 
   .error {
@@ -111,5 +86,35 @@ module.exports = csjs`
     margin-bottom: 1em;
     margin-left: 2em;
   }
+
+  .tt-checkout form {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    margin-left: -1em;
+  }
+
+  .form-section {
+    flex: 1;
+    padding-left: 1em;
+  }
+
+  .tt-checkout h2 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 1em;
+    border-bottom: 1px solid gray;
+    color: gray;
+  }
+
+  .invalid.has-focused {
+    color: red;
+  }
+
+  .invalid.has-focused input {
+    border-bottom: 1px solid red;
+  }
+
+  .half, .third {}
 
 `

@@ -1,4 +1,5 @@
 var bel = require('bel')
+var orderForm = require('./form')
 var cartIcon = require('../components/cart-icon')
 var logoIcon = require('../components/logo-icon')
 var style = require('./index.csjs')
@@ -34,7 +35,6 @@ module.exports = function(data) {
 
       ${orderForm(data)}
 
-      ${views[data.step](data)}
     </div>
   `
 }

@@ -2,6 +2,7 @@ var csjs = require('csjs')
 module.exports = csjs`
   .tt-checkout-wrapper {
     padding-top: 4em;
+    padding-bottom: 4em;
   }
 
   .resolving {

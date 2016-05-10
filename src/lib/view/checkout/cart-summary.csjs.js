@@ -11,6 +11,7 @@ module.exports = csjs`
   .order-summary li {
     align-items: center;
     display: flex;
+    margin-bottom: 0.5em;
   }
 
   .image {
