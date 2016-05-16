@@ -53,4 +53,15 @@ module.exports = csjs`
     text-align: right;
   }
 
+  .tt-prod-buttons button:disabled {
+    color: lightgray;
+    border-color: lightgray;
+  }
+
+  .tt-prod-buttons button:disabled:hover {
+    cursor: initial;
+    color: lightgray;
+    border-color: lightgray;
+  }
+
 `

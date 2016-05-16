@@ -22,36 +22,42 @@ module.exports = function(moltin, cartModel) {
     })
   })
 
-  function setOrderInfo(data) {
-    s.orderInfo.set(xtend({
-      ship_to: 'bill_to',
+  // function setOrderInfo(data) {
+  //   s.orderInfo.set(xtend({
+  //     ship_to: 'bill_to',
+  //     gateway: 'dummy',
+  //     shipping: shipping
+  //   }, data))
+  // }
+
+  // function setPaymentInfo(cardInfo) {
+  //   s.paymentInfo.set(cardInfo)
+  // }
+
+  // function pay(moltin, orderId, cardData, cb) {
+  //   moltin.Checkout.Payment('purchase', orderId, cardData,
+  //     function onSuccess(order) {
+  //       cb(null, order)
+  //     }, function onErr(err) {
+  //       cb(arguments)
+  //     }
+  //   )
+  // }
+
+  function submitOrder(moltin, orderData, cb) {
+    console.log(orderData)
+
+    var d = xtend({
       gateway: 'dummy',
       shipping: shipping
-    }, data))
-  }
+    }, orderData.order)
 
-  function setPaymentInfo(cardInfo) {
-    s.paymentInfo.set(cardInfo)
-  }
-
-  function pay(moltin, orderId, cardData, cb) {
-    moltin.Checkout.Payment('purchase', orderId, cardData,
-      function onSuccess(order) {
-        cb(null, order)
-      }, function onErr(err) {
-        cb(arguments)
-      }
-    )
-  }
-
-  function submitOrder(moltin, cb) {
-    moltin.Cart.Complete(s.orderInfo(), function onSuccess(order) {
-      moltin.Checkout.Payment('purchase', order.id, { data: s.paymentInfo() },
+    moltin.Cart.Complete(d, function onSuccess(order) {
+      moltin.Checkout.Payment('purchase', order.id, { data: orderData.payment },
         function onSuccess(resp) {
           s.status.set({
             type: 'success'
           })
-          s.orderInfo.set(order)
           cb(null, resp)
         }, function onErr(err, msg, code) {
           s.status.set({
@@ -64,7 +70,7 @@ module.exports = function(moltin, cartModel) {
     }, function onErr(err, msg, code) {
       s.status.set({
         type: 'error',
-        msg: msg,
+        msg: JSON.stringify(msg),
         code: code
       })
       cb(arguments)
@@ -74,9 +80,9 @@ module.exports = function(moltin, cartModel) {
   return {
     state: s,
     actions: {
-      pay: pay.bind(null, moltin),
-      setOrderInfo: setOrderInfo.bind(null),
-      setPaymentInfo: setPaymentInfo.bind(null),
+      //pay: pay.bind(null, moltin),
+      //setOrderInfo: setOrderInfo.bind(null),
+      //setPaymentInfo: setPaymentInfo.bind(null),
       submitOrder: submitOrder.bind(null, moltin)
     }
   }

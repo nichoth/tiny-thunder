@@ -2,6 +2,7 @@ var bel = require('bel')
 var style = require('./product-detail.csjs')
 var cartIcon = require('./components/cart-icon')
 var logoIcon = require('./components/logo-icon')
+var realButton = require('./components/real-button.js')
 var button = require('./components/button.js')
 var loading = require('./components/spinner')
 var buttonBack = require('./components/button-back')
@@ -58,11 +59,12 @@ module.exports = function(data) {
   }
 
   function addButton() {
-    var add = button({
-      href: '#',
+    var props = {
       onclick: addToCart
-    }, 'add to cart')
+    }
+    if (data.product.stock_level < 1) props.disabled = true
 
+    var add = realButton(props, 'add to cart')
     var view = button({ href: '/cart' }, 'view cart')
 
     var inCart = Object.keys(c.contents).find(function(id) {
@@ -98,6 +100,10 @@ module.exports = function(data) {
         <hr>
 
         <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
+          ${data.product.stock_level < 1 ?
+            bel`<div class="stock-level">Out of stock</div>` :
+            ''
+          }
           ${p.isResolving || data.cart.isResolving ? loading() : addButton()}
         </div>
       </div>

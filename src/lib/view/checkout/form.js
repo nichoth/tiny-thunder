@@ -1,81 +1,119 @@
 var bel = require('bel')
+var pick = require('object.pick')
+var getFormData = require('form-data-set')
 var addClass = require('dom101/add-class')
 var toggleClass = require('dom101/toggle-class')
 var update = require('yo-yo').update
 var formEl = require('./form-el')
-var paymentForm = require('./payment')
 var loading = require('../components/spinner')
 var button = require('../components/real-button')
 var cartSummary = require('./cart-summary')
 var h = bel.createElement
 var style = require('./checkout.csjs')
 var nav = require('./checkout-nav')
+var ccRegex = require('credit-card-regex')
 
 function payment() {
+  var prefix = 'tt-payment-'
+  var input = formEl.bind(null, bel.createElement, prefix)
+
   return [
-    formEl(h, { name: 'Card Number' }),
+    input({ name: 'Card Number', onfocus: onFocus,
+      pattern: ccRegex({exact: true}).source
+    }),
     h('div', { className: style['field-container'] }, [
-      { name: 'Expiration', placeholder: '01/2015' },
-      { name: 'cvv', placeholder: '123' }
-    ].map(formEl.bind(null, bel.createElement)))
+      { name: 'Expiration Mo', placeholder: '01', pattern: '^(0?[1-9]|1[012])$' },
+      { name: 'Expiration Year', placeholder: '2019', maxlength: 4,
+        oninput: function(ev) {
+          ev.stopPropagation()
+          var val = +ev.target.value
+          var currYear = (new Date()).getFullYear()
+          var v = val >= currYear && val < 3000
+          toggleClass(ev.target.parentElement, style.invalid, !v)
+        }
+      },
+      { name: 'cvv', placeholder: '123', maxlength: 4,
+        title: 'The code on the back'
+      }
+    ].map(addFocusHandler).map(input))
   ]
+
 }
 
-function addr() {
+function onFocus(ev) {
+  addClass(ev.target.parentElement, style['has-focused'])
+}
 
-  function onFocus(ev) {
-    addClass(ev.target.parentElement, style['has-focused'])
-  }
+function addFocusHandler(obj) {
+  obj.onfocus = onFocus
+  return obj
+}
 
-  function addFocusHandler(obj) {
-    obj.onfocus = onFocus
-    return obj
-  }
+function addr(idPrefix) {
+
+  var addrInput = formEl.bind(null, h, 'tt-'+idPrefix)
 
   return [
     h('div', { className: style['field-container'] }, [
       { name: 'First Name', className: style.half },
       { name: 'Last Name', className: style.half }
-    ].map(addFocusHandler).map(formEl.bind(null, h))),
+    ].map(addFocusHandler).map(addrInput)),
     h('div', { className: style['field-container'] }, [
-      formEl(h, { name: 'Street', onfocus: onFocus })
+      addrInput({ name: 'Street', onfocus: onFocus })
     ]),
     h('div', { className: style['field-container'] }, [
       { name: 'City', className: style.third },
       { name: 'State', className: style.third },
       { name: 'Zipcode', className: style.third }
-    ].map(addFocusHandler).map(formEl.bind(null, h))),
-    formEl(h, { name: 'Email', type: 'email', onfocus: onFocus })
+    ].map(addFocusHandler).map(addrInput)),
+    addrInput({ name: 'Email', type: 'email', onfocus: onFocus })
   ]
 }
 
+// show or hide fields for shipping address
 function onShippingChange(ev) {
   var el = bel`
     <div id="shipping-addr-fields">
-      ${ev.target.checked ? '' : addr()}
+      ${ev.target.checked ? '' : addr('shipping')}
     </div>
   `
   update(document.getElementById('shipping-addr-fields'), el)
 }
 
-module.exports = function(data) {
-  var bAddr = data.order.orderInfo.bill_to
-  var sAddr = data.order.orderInfo.ship_to
-  var card = data.order.paymentInfo
-
-  var isValid = false
-
-  var addrLines = [
-    bAddr.first_name + ' ' + bAddr.last_name,
-    bAddr.address_1,
-    bAddr.address_2,
-    bAddr.city + ', ' + bAddr.county,
-    bAddr.postcode
-  ]
+module.exports = function renderCheckout(data) {
 
   function placeOrder(ev) {
     ev.preventDefault()
-    data.actions.submitOrder()
+    var formData = getFormData(ev.target.elements)
+    console.log('form data', formData)
+
+    var billingMap = {
+      street: 'address_1',
+      state: 'county',
+      zipcode: 'postcode',
+      city: 'city',
+      first_name: 'first_name',
+      last_name: 'last_name'
+    }
+
+    var billing = Object.keys(formData).reduce(function(acc, k) {
+      if (billingMap[k]) acc[billingMap[k]] = formData[k]
+      return acc
+    }, { country: 'US', address_2: '' })
+
+    data.actions.submitOrder({
+      order: {
+        customer: pick(formData, ['first_name', 'last_name', 'email']),
+        bill_to: billing,
+        ship_to: 'bill_to'
+      },
+      payment: {
+        number: formData.card_number,
+        expiry_month: formData.expiration,
+        expiry_year: '2017',
+        cvv: formData.cvv
+      }
+    })
   }
 
   function error() {
@@ -89,9 +127,8 @@ module.exports = function(data) {
   }
 
   function formChange(ev) {
-    //var isValid = document.querySelector('form').checkValidity()
+    // add 'invalid' class to label elmt
     var v = ev.target.checkValidity()
-    //if (!v) return addClass(ev.target.parentElement, style.invalid)
     toggleClass(ev.target.parentElement, style.invalid, !v)
   }
 
@@ -106,8 +143,8 @@ module.exports = function(data) {
           <div class="${style['form-section']}">
             <h2>Address</h2>
             <fieldset>
-              <legend>Billing Address</legend>
-              ${addr()}
+              <legend>Billing</legend>
+              ${addr('billing')}
             </fieldset>
 
             <fieldset>

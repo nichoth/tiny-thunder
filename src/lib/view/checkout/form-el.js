@@ -8,11 +8,12 @@ var slugify = function(str) {
 
 module.exports = formEl
 
-function formEl(h, props) {
+function formEl(h, idPrefix, props) {
     props = typeof props === 'string' ? { name: props } : props
 
     var attrs = xtend({
       type: 'text',
+      id: idPrefix+slugify(props.name),
       required: 'required'
     }, props, {
       name: slugify(props.name)

@@ -117,4 +117,8 @@ module.exports = csjs`
 
   .half, .third {}
 
+  label.expiration {
+
+  }
+
 `
