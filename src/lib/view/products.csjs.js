@@ -41,7 +41,7 @@ module.exports = csjs`
     transition: opacity 0.3s;
     opacity: 0.5;
     display: inline-block;
-    margin-top: 2em;
+    margin-top: 1em;
     padding-top: 1em;
     border-top: 1px solid gray;
     text-transform: uppercase;

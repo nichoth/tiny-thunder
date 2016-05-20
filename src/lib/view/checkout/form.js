@@ -22,17 +22,17 @@ function payment() {
       pattern: ccRegex({exact: true}).source
     }),
     h('div', { className: style['field-container'] }, [
-      { name: 'Expiration Mo', placeholder: '01', pattern: '^(0?[1-9]|1[012])$' },
+      { name: 'Expiration Month', placeholder: '01', pattern: '^(0?[1-9]|1[012])$' },
       { name: 'Expiration Year', placeholder: '2019', maxlength: 4,
         oninput: function(ev) {
           ev.stopPropagation()
           var val = +ev.target.value
           var currYear = (new Date()).getFullYear()
-          var v = val >= currYear && val < 3000
+          var v = val >= currYear && val < 2100
           toggleClass(ev.target.parentElement, style.invalid, !v)
         }
       },
-      { name: 'cvv', placeholder: '123', maxlength: 4,
+      { name: 'cvv', placeholder: '000', maxlength: 4,
         title: 'The code on the back'
       }
     ].map(addFocusHandler).map(input))
@@ -109,8 +109,8 @@ module.exports = function renderCheckout(data) {
       },
       payment: {
         number: formData.card_number,
-        expiry_month: formData.expiration,
-        expiry_year: '2017',
+        expiry_month: formData.expiration_month,
+        expiry_year: formData.expiration_year,
         cvv: formData.cvv
       }
     })

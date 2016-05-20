@@ -9,16 +9,17 @@ module.exports = function(moltin, cartModel) {
   //var info = state ? JSON.parse(state) : { customer: {}, payment: {} }
 
   var s = struct({
-    orderInfo: struct({
-      bill_to: {},
-      ship_to: {},
-      customer: {},
-      gateway: 'dummy',
-      shipping: shipping
-    }),
-    paymentInfo: struct({}),
+    // orderInfo: struct({
+    //   bill_to: {},
+    //   ship_to: {},
+    //   customer: {},
+    //   gateway: 'dummy',
+    //   shipping: shipping
+    // }),
+    // paymentInfo: struct({}),
+    order: struct({}),
     status: struct({
-      type: 'new'
+      type: null
     })
   })
 
@@ -55,6 +56,7 @@ module.exports = function(moltin, cartModel) {
     moltin.Cart.Complete(d, function onSuccess(order) {
       moltin.Checkout.Payment('purchase', order.id, { data: orderData.payment },
         function onSuccess(resp) {
+          s.order.set(resp)
           s.status.set({
             type: 'success'
           })
