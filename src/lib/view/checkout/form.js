@@ -10,7 +10,6 @@ var button = require('../components/real-button')
 var cartSummary = require('./cart-summary')
 var h = bel.createElement
 var style = require('./checkout.csjs')
-var nav = require('./checkout-nav')
 var ccRegex = require('credit-card-regex')
 
 function payment() {

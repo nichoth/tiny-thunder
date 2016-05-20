@@ -5,13 +5,6 @@ var logoIcon = require('../components/logo-icon')
 var style = require('./index.csjs')
 var stickyNav = require('../components/sticky-nav')
 
-// var views = {
-//   address: require('./address'),
-//   payment: require('./payment'),
-//   review: require('./review'),
-//   error: require('./error'),
-//   success: require('./success')
-// }
 
 module.exports = function(data) {
   console.log('checkout', data)

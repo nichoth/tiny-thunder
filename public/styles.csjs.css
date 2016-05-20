@@ -567,33 +567,6 @@
   }
 
 
-  .checkout-nav_uQnXD {
-    margin-bottom: 3em;
-
-  }
-
-  .checkout-nav_uQnXD ul {
-    display: flex;
-    padding: 0;
-  }
-  .checkout-nav_uQnXD li {
-    border: 1px solid;
-    text-align: center;
-    flex: 1;
-    display: inline-block;
-    list-style: none;
-  }
-
-  .checkout-nav_uQnXD nav {
-    max-width: 40em;
-    margin: 0 auto;
-  }
-
-  .checkout-nav_uQnXD li.active_uQnXD {
-    font-weight: bold;
-    border: 2px solid;
-  }
-
   .cart_3VvqlD {
   }
 
