@@ -1,20 +1,19 @@
 var bel = require('bel')
+var logoIcon = require('../components/logo-icon')
 var xtend = require('xtend')
-var loading = require('../view/loading')
 var renderCart = require('h-shopping-cart')
+var buttonDel = require('../components/button-del')
+var button = require('../components/button')
+var loading = require('../components/spinner')
 var qtyEl = require('./quantity')
-var svgs = require('./svg')
-var btnStyle = require('./btns.csjs')
 var style = require('./cart.csjs')
-var config = require('../../config.json')
+var config = require('../../../config.json')
+var head = require('../components/checkout-head')
+var stickyNav = require('../components/sticky-nav')
 
 module.exports = function render(data) {
   var cart = data.cart
   console.log(data)
-
-  if (cart.isResolving) {
-    return loading()
-  }
 
   function symbol(content) {
     return bel.createElement('span.mod', {
@@ -35,11 +34,10 @@ module.exports = function render(data) {
   }
 
   function delBtn(onClick) {
-    return bel`
-      <div title="remove from cart" class="tt-del-btn ${btnStyle['tt-btn']}">
-        <button onclick=${onClick}>${svgs.del()}</button>
-      </div>
-    `
+    return buttonDel({
+      title: 'remove from cart',
+      onclick: onClick
+    })
   }
 
   var cartEl = renderCart(bel, xtend(data, {
@@ -54,7 +52,10 @@ module.exports = function render(data) {
         ],
         q: [
           symbol('× '),
-          qtyEl(row.quantity, onQtyChange.bind(null, row))
+          qtyEl({
+            value: row.quantity,
+            oninput: onQtyChange.bind(null, row)
+          })
         ]
       }
 
@@ -68,20 +69,32 @@ module.exports = function render(data) {
     })
   }))
 
+  function updateCart(ev) {
+    ev.preventDefault()
+    data.onAction.update()
+  }
+
   function controls() {
-    var checkout = bel`<a href="/cart/checkout">buy these</a>`
-    var update = '???'
+    var checkoutBtn = data.cart.isDirty ?
+      button({ href: '#', onclick: updateCart}, 'update cart') :
+      button({ href: '/cart/checkout' }, 'buy these')
+
     return bel`
       <div class="${style['button-row']}">
-        ${data.isUpdating ? update : checkout}
+        ${data.cart.isUpdating ? loading() : checkoutBtn}
       </div>
     `
   }
 
+  var content = [ cartEl, controls() ]
+
   return bel`
     <div class="tt-cart ${style['tt-cart']}">
-      ${cartEl}
-      ${controls()}
+      ${head('cart')}
+      ${stickyNav([
+        logoIcon()
+      ])}
+      ${cart.isResolving ? loading() : content}
     </div>
   `
 

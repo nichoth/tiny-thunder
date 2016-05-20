@@ -6,11 +6,18 @@ body {
   min-height: 100vh;
 }
 
-.tt-review-section h2 {
-  text-transform: uppercase;
-  color: gray;
-  font-weight: 400;
+input {
   font-size: 1em;
+  font-size: 1rem;
+}
+
+.tt-checkout input[type=number]::-webkit-inner-spin-button, .tt-checkout input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#content {
+  margin-bottom: 4em;
 }
 
 .tt-cart-review-page {
@@ -32,16 +39,6 @@ body {
   display: flex;
   flex-flow: row wrap;
   margin-left: -1em;
-}
-
-.tt-review-section {
-  -webkit-box-flex: 1;
-          flex: 1;
-  padding-left: 1em;
-}
-
-.tt-review-section h2 {
-  border-bottom: 1px solid gray;
 }
 
 a {
@@ -108,3 +105,55 @@ h1.site-name {
   padding: 1em;
 }
 
+/* buttons */
+
+.tt-prod-buttons {
+  margin-top: 2em;
+}
+
+.tt-button, .tt-button-primary {
+  font-weight: bold;
+  box-shadow: 4px 4px 4px #ccc;
+  text-transform: uppercase;
+  border: 2px solid gray;
+  padding: 0.6em 1em;
+  letter-spacing: 0.1em;
+  color: gray
+}
+
+.tt-button:hover, .tt-button-primary:hover {
+  text-decoration: none;
+  border: 2px solid black;
+  color: black;
+}
+
+/*
+  product detail page
+  -----------------------
+*/
+
+.tt-product-desc {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.tt-prod-desc-text {
+}
+
+.tt-price {
+  margin-left: 1.5em;
+  padding-left: 1.5em;
+  border-left: 1px solid lightgray;
+  color: darkslategray;
+  font-size: 2em;
+  font-family: 'Playfair Display',serif;
+
+}
+
+.tt-product-detail .tt-prod-buttons .loader {
+  display: inline-block;
+}

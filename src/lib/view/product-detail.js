@@ -1,9 +1,12 @@
 var bel = require('bel')
 var style = require('./product-detail.csjs')
-var btnStyle = require('./btns.csjs')
-var buttonStyle = require('h-buttons')
-var loading = require('./loading')
-var backBtn = require('./svg').back
+var cartIcon = require('./components/cart-icon')
+var logoIcon = require('./components/logo-icon')
+var realButton = require('./components/real-button.js')
+var button = require('./components/button.js')
+var loading = require('./components/spinner')
+var buttonBack = require('./components/button-back')
+var stickyNav = require('./components/sticky-nav')
 
 module.exports = function(data) {
   var p = data.product
@@ -18,22 +21,14 @@ module.exports = function(data) {
     return img.url.http
   })
 
-  function cartIcon() {
-    var content = data.cart.isResolving ? '?' : c.total_unique_items
-
-    return bel`<span class="tt-cart-icon">
-      <a href="/cart">cart: </a>
-      ${content}
-    </span>`
-  }
-
   function nav() {
     return bel`
       <div class="tt-product-nav ${style['product-nav']}">
-        <div class="tt-back-btn ${btnStyle['tt-btn']}">
-          <a href="#">${backBtn()}</a>
-        </div>
-        ${cartIcon()}
+        ${buttonBack()}
+        ${cartIcon({
+          isResolving: c.isResolving,
+          total: c.total_unique_items
+        })}
       </div>
     `
   }
@@ -64,12 +59,14 @@ module.exports = function(data) {
   }
 
   function addButton() {
-    var add = bel`
-      <a href="#" onclick=${addToCart}>add to cart</a>
-    `
-    var view = bel`
-      <a href="/cart">view the cart</a>
-    `
+    var props = {
+      onclick: addToCart
+    }
+    if (data.product.stock_level < 1) props.disabled = true
+
+    var add = realButton(props, 'add to cart')
+    var view = button({ href: '/cart' }, 'view cart')
+
     var inCart = Object.keys(c.contents).find(function(id) {
       var item = c.contents[id]
       return item.id === p.id
@@ -79,21 +76,36 @@ module.exports = function(data) {
 
   return bel`
     <div class="tt-product-detail ${style['product-detail-page']}">
-      ${nav()}
+
+
+      ${stickyNav([
+        buttonBack(),
+        logoIcon(),
+        cartIcon({
+          isResolving: c.isResolving,
+          total: c.total_unique_items
+        })
+      ])}
 
       ${imageGallery(images)}
 
-      ${head()}
+      <div class="${style['product-description']}">
+        ${head()}
 
-      <p>
-        ${p.description}
-        <span class="tt-price ${style['tt-price']}">${p.price.value}</span>
-      </p>
+        <div class="tt-product-desc">
+          <p class="tt-prod-desc-text">${p.description}</p>
+          <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
+        </div>
 
-      <hr>
+        <hr>
 
-      <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
-        ${p.isResolving || data.cart.isResolving ? '?' : addButton()}
+        <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
+          ${data.product.stock_level < 1 ?
+            bel`<div class="stock-level">Out of stock</div>` :
+            ''
+          }
+          ${p.isResolving || data.cart.isResolving ? loading() : addButton()}
+        </div>
       </div>
 
     </div>

@@ -13,10 +13,14 @@ module.exports = csjs`
     margin-bottom: 4em;
   }
 
+  .product-list-item > a {
+    display: block;
+  }
+
   .product-list-item .product-image-wrapper {
+    opacity: 0.6;
     transition: opacity 0.3s;
     display: block;
-    opacity: 0.6;
     margin: 0 auto;
     background-repeat: no-repeat;
     height: 300px;
@@ -26,27 +30,22 @@ module.exports = csjs`
     clip-path: url("#clippy-diamond");
   }
 
-  .product-image-wrapper:hover {
+  .product-list-item:hover .product-image-wrapper,
+  .product-list-item:hover .product-item-title {
     opacity: 1;
   }
 
   .product-item-title {
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    opacity: 0.5;
     display: inline-block;
-    margin-top: 2em;
+    margin-top: 1em;
     padding-top: 1em;
     border-top: 1px solid gray;
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
-  .product-item-title a {
-    color: black;
-    transition: opacity 0.25s;
-    opacity: 0.5;
-    text-decoration: none;
-  }
-
-  .product-item-title a:hover {
-    opacity: 1;
-  }
 `

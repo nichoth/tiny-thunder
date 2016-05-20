@@ -5,6 +5,7 @@ var defaultStyle = require('h-shopping-cart/index.csjs')
 module.exports = csjs`
   .tt-cart {
     padding: 1em;
+    padding-top: 3em;
   }
 
   .tt-qty-btn {
@@ -16,6 +17,7 @@ module.exports = csjs`
   }
 
   .button-row {
+    margin-top: 1em;
     text-align: right;
   }
 `

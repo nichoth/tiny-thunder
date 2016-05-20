@@ -15,7 +15,7 @@ module.exports = function(data) {
 
   return bel`
     <div class="wrapper">
-      ${head({ nav: navEls, subNav: subLinks })}
+      ${head({ links: { nav: navEls, subNav: subLinks }, cart: data.cart })}
       ${products(data)}
 
       <svg class="diamond" width="0" height="0">

@@ -2,14 +2,23 @@ var buttonStyle = require('h-buttons')
 var csjs = require('csjs')
 
 module.exports = csjs`
+
   .product-detail-page {
-    text-align: left;
-    max-width: 40em;
-    margin: 0 auto;
     padding: 1em;
+    padding-top: 6em;
+    text-align: left;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .product-description {
+    flex: 4;
+    margin-left: 2em;
   }
 
   .product-gallery {
+    max-width: 30em;
+    flex: 8;
   }
 
   .product-gallery .main-image {
@@ -24,6 +33,7 @@ module.exports = csjs`
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 0.1em;
+    margin-top: 0;
   }
 
   .product-nav {
@@ -41,6 +51,17 @@ module.exports = csjs`
 
   .tt-prod-buttons {
     text-align: right;
+  }
+
+  .tt-prod-buttons button:disabled {
+    color: lightgray;
+    border-color: lightgray;
+  }
+
+  .tt-prod-buttons button:disabled:hover {
+    cursor: initial;
+    color: lightgray;
+    border-color: lightgray;
   }
 
 `

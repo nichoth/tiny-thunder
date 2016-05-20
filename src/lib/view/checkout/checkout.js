@@ -8,14 +8,15 @@ var slugify = function(str) {
   })
 }
 var xtend = require('xtend')
-var hForm = require('virtual-form')
 var getFormData = require('form-data-set')
 var style = require('./checkout.csjs')
-var config = require('../../config.json')
+var config = require('../../../config.json')
 
 module.exports = render
 
 function render(data) {
+
+  console.log('checkout', data)
 
   function addr() {
     return [
@@ -93,21 +94,6 @@ function render(data) {
   }
 
   function payment() {
-    // var fe = formEl.bind(null, bel.createElement)
-    // return [
-    //   fe({ name: 'Card Number', type: 'number' }),
-    //   bel`
-    //     <label>
-    //       Expiration
-    //       <select name="expiration">
-    //         ${range(1, 13).map(function createOption(n) {
-    //           return bel`
-    //             <option value="
-    //           `
-    //         })}
-    //       </select>
-    //   `
-    // ]
     return [
       { name: 'Card Number', type: 'number' },
       { name: 'Expiration', placeholder: '01/2015' },
@@ -116,6 +102,7 @@ function render(data) {
   }
 
   var form = bel`
+
     <div class="tt-checkout ${style['tt-checkout']}">
       <form onsubmit=${submitHandler}>
 

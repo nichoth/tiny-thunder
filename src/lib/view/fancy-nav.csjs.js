@@ -1,4 +1,5 @@
 var csjs = require('csjs')
+var ciStyle = require('./components/cart-icon.csjs')
 module.exports = csjs`
   .diamond-item {
     z-index: 2;
@@ -10,8 +11,11 @@ module.exports = csjs`
 
   .half-diamond-item extends .diamond-item {
     flex: 0.5;
+  }
+
+  .half-diamond-r {
     position: relative;
-    top: 1.2em;
+    bottom: 1.6em;
   }
 
   .diamond-wrapper {
@@ -33,6 +37,23 @@ module.exports = csjs`
     pointer-events: initial;
     position: relative;
     top: 40px;
+  }
+
+  .nav-text-left extends .nav-text {
+    top: 30px;
+    right: 2em;
+  }
+
+  .nav-text-right extends .nav-text {
+    top: 64px;
+    left: 4em;
+    display: block;
+    width: 3em;
+    height: 3em;
+  }
+
+  .nav-text-right ${ciStyle['tt-cart-qty']} {
+    left: 0.35em;
   }
 
   .nav-text a {
