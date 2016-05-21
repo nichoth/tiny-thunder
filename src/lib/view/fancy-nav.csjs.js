@@ -1,5 +1,6 @@
 var csjs = require('csjs')
 var ciStyle = require('./components/cart-icon.csjs')
+
 module.exports = csjs`
   .diamond-item {
     z-index: 2;
@@ -26,11 +27,15 @@ module.exports = csjs`
   .sub-nav-wrapper extends .diamond-wrapper {
     z-index: 1;
     position: relative;
-    bottom: 65px;
+    bottom: 155px;
   }
 
   .sub-nav-wrapper .diamond-item {
-    height: 120px;
+    height: 185px;
+  }
+
+  .sub-nav-wrapper .nav-text {
+    top: 130px;
   }
 
   .nav-text {

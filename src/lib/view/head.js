@@ -56,13 +56,28 @@ function diamond(link) {
   `
 }
 
+function rombus(link) {
+  return bel`
+    <div class="diamond-item ${style['diamond-item']}">
+      <span class="nav-text ${style['nav-text']}">
+        ${link}
+      </span>
+      <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
+        preserveAspectRatio="none" filter="${dFilter}">
+        <polyline fill="white" stroke-width="0.5" stroke="black"
+          points="0,50 50,${dHeight} 100,50 50,0 0,50" />
+      </svg>
+    </div>
+  `
+}
+
 module.exports = function render (data) {
   var links = data.links
 
   var subNav = links.subNav.length ?
     bel`<div class="sub-nav-wrapper ${style['sub-nav-wrapper']}">
       ${links.subNav.map(function(link) {
-        return diamond(link)
+        return rombus(link)
       })}
     </div>` :
     ''
