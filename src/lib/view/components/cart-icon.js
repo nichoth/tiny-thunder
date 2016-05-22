@@ -2,7 +2,7 @@ var bel = require('bel')
 var style = require('./cart-icon.csjs')
 module.exports = function cartIcon(data) {
   data = data || {}
-  data.total = data.total || ''
+  data.total = data.total || 0
   var content = data.isResolving ? '?' : data.total
 
   return bel`

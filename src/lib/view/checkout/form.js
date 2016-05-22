@@ -12,6 +12,7 @@ var h = bel.createElement
 var style = require('./checkout.csjs')
 var ccRegex = require('credit-card-regex')
 
+
 function payment() {
   var prefix = 'tt-payment-'
   var input = formEl.bind(null, bel.createElement, prefix)
@@ -116,7 +117,7 @@ module.exports = function renderCheckout(data) {
   }
 
   function error() {
-    if (data.order.status.type === 'error') {
+    if (data.order.status === 'error') {
       return bel`
         <div class="${style['error']}">
           Uh oh: ${data.order.status.msg}

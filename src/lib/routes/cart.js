@@ -14,17 +14,15 @@ module.exports = function(adapter) {
           if (err) console.log(err)
         })
       },
-      remove: del
+      remove: function(id) {
+        adapter.actions.remove(id, function(err, resp) {
+          if (err) return console.log(err)
+          console.log('success del')
+        })
+      }
     },
     cart: adapter.state
   })
-
-  function del(id) {
-    adapter.actions.remove(id, function(err, resp) {
-      if (err) return console.log(err)
-      console.log('success del')
-    })
-  }
 
   route.render = cartView
   adapter.actions.getContents(function(err, cart) {

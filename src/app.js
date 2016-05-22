@@ -4,6 +4,7 @@ var update = require('yo-yo').update
 var moltin = new Moltin({
   publicId: process.env.PUBLIC_ID
 })
+window.moltin = moltin
 
 module.exports = function() {
 

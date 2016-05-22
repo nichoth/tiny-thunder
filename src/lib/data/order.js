@@ -9,10 +9,7 @@ module.exports = function(moltin, cartModel) {
   //var info = state ? JSON.parse(state) : { customer: {}, payment: {} }
 
   var s = struct({
-    order: struct({}),
-    status: struct({
-      type: null
-    })
+    status: observ(null)
   })
 
 
@@ -27,10 +24,8 @@ module.exports = function(moltin, cartModel) {
     moltin.Cart.Complete(d, function onSuccess(order) {
       moltin.Checkout.Payment('purchase', order.id, { data: orderData.payment },
         function onSuccess(resp) {
-          s.order.set(resp)
-          s.status.set({
-            type: 'success'
-          })
+          resp.type = 'success'
+          s.status.set(resp)
           cb(null, resp)
         }, function onErr(err, msg, code) {
           s.status.set({

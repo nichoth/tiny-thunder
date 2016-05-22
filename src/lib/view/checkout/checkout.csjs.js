@@ -118,7 +118,18 @@ module.exports = csjs`
   .half, .third {}
 
   label.expiration {
+  }
 
+  .success-page h1 {
+    line-height: 1;
+    border-bottom: 3px solid;
+    color: goldenrod;
+    font-family: Playfair Display, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    font-size: 13vw;
+    margin: 0;
+    display: inline-block;
   }
 
 `

@@ -5,7 +5,7 @@ var OrderModel = require('../data/order')
 module.exports = function(moltin, setRoute) {
   var cache = Cache(moltin)
   var cartAdapter = CartAdapter(moltin)
-  var orderModel = OrderModel(moltin)
+  //var orderModel = OrderModel(moltin)
 
   return {
     '/': require('./root').bind(null, cache),
@@ -14,7 +14,6 @@ module.exports = function(moltin, setRoute) {
     '/jewelry/:subCategory': require('./sub-category').bind(null, cache),
     '/product/:productSlug': require('./product-detail')
       .bind(null, cache, cartAdapter),
-    '/cart/checkout': require('./checkout').bind(null, cartAdapter, orderModel),
-    //'/cart/review': require('./order-review').bind(null, cartAdapter, orderModel)
+    '/cart/checkout': require('./checkout').bind(null, cartAdapter, moltin)
   }
 }

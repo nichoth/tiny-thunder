@@ -8,6 +8,17 @@ module.exports = csjs`
     padding-top: 3em;
   }
 
+  a.disabled {
+    color: lightgray;
+    border: 1px solid lightgray;
+  }
+
+  a.disabled:hover {
+    color: lightgray;
+    border: 1px solid lightgray;
+    cursor: default;
+  }
+
   .tt-qty-btn {
     max-width: 3em;
   }

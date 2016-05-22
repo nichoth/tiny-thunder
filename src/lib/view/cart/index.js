@@ -13,6 +13,7 @@ var stickyNav = require('../components/sticky-nav')
 
 module.exports = function render(data) {
   var cart = data.cart
+  var isEmpty = data.cart.cart.total_items < 1
   console.log(data)
 
   function symbol(content) {
@@ -77,7 +78,13 @@ module.exports = function render(data) {
   function controls() {
     var checkoutBtn = data.cart.isDirty ?
       button({ href: '#', onclick: updateCart}, 'update cart') :
-      button({ href: '/cart/checkout' }, 'buy these')
+      button({
+        href: '/cart/checkout',
+        className: isEmpty ? style['disabled'] : '',
+        onclick: function(ev) {
+          if (isEmpty) ev.preventDefault()
+        }
+      }, 'buy these')
 
     return bel`
       <div class="${style['button-row']}">
@@ -86,7 +93,10 @@ module.exports = function render(data) {
     `
   }
 
-  var content = [ cartEl, controls() ]
+  var content = [
+    isEmpty ? bel`<p>This cart is empty.</p>` : cartEl,
+    controls()
+  ]
 
   return bel`
     <div class="tt-cart ${style['tt-cart']}">

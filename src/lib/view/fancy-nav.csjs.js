@@ -34,6 +34,10 @@ module.exports = csjs`
     height: 185px;
   }
 
+  .sub-nav-wrapper polyline {
+    fill: whitesmoke;
+  }
+
   .sub-nav-wrapper .nav-text {
     top: 130px;
   }
@@ -58,7 +62,6 @@ module.exports = csjs`
   }
 
   .nav-text-right ${ciStyle['tt-cart-qty']} {
-    left: 0.35em;
   }
 
   .nav-text a {

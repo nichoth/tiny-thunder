@@ -5,7 +5,6 @@ var after = require('after')
 module.exports = function(moltin) {
 
   var patches = {}
-
   var s = struct({
     isResolving: observ(false),
     isDirty: observ(false),
@@ -27,6 +26,7 @@ module.exports = function(moltin) {
     })
   }
 
+  // update quantity, but don't sync with server
   function dirtyQtyUpdate(id, qty) {
     s.isDirty.set(true)
     patches[id] = { id: id, qty: qty }
@@ -35,6 +35,7 @@ module.exports = function(moltin) {
     s.cart.set(cart)
   }
 
+  // sync model state with server
   function syncQty(moltin, patches, cb) {
     s.isUpdating.set(true)
 
@@ -65,6 +66,7 @@ module.exports = function(moltin) {
     })
   }
 
+  // remove a single item from the cart
   function remove(moltin, id, cb) {
     s.isUpdating.set(true)
     moltin.Cart.Remove(id, function onSuccess(resp) {
@@ -93,12 +95,35 @@ module.exports = function(moltin) {
     })
   }
 
+  // create an order from this cart
   function complete(moltin, data, cb) {
     moltin.Cart.Complete(data, function onSuccess(order) {
       cb(null, order)
     }, function onErr(err) {
       cb(arguments)
     })
+  }
+
+  // remove everything from the cart
+  function clear(moltin, cb) {
+    s.isResolving.set(true)
+
+    moltin.Cart.Delete(
+      function onSuccess(resp) {
+        // reset cart state
+        patches = {}
+        s.isResolving.set(false)
+        s.isDirty.set(false)
+        s.isUpdating.set(false)
+        s.cart.set({ contents: {} })
+        cb(null, resp)
+      },
+      function onErr(error) {
+        s.isResolving.set(false)
+        cb(arguments)
+      }
+    )
+
   }
 
   return {
@@ -109,7 +134,8 @@ module.exports = function(moltin) {
       dirtyQtyUpdate: dirtyQtyUpdate,
       syncQty: syncQty.bind(null, moltin, patches),
       remove: remove.bind(null, moltin),
-      complete: complete.bind(null, moltin)
+      complete: complete.bind(null, moltin),
+      clear: clear.bind(null, moltin)
     }
   }
 
