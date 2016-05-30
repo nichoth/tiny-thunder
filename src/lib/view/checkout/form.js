@@ -5,7 +5,6 @@ var addClass = require('dom101/add-class')
 var toggleClass = require('dom101/toggle-class')
 var update = require('yo-yo').update
 var formEl = require('./form-el')
-var loading = require('../components/spinner')
 var button = require('../components/real-button')
 var cartSummary = require('./cart-summary')
 var h = bel.createElement
@@ -117,7 +116,7 @@ module.exports = function renderCheckout(data) {
   }
 
   function error() {
-    if (data.order.status === 'error') {
+    if (data.order.status && data.order.status.type === 'error') {
       return bel`
         <div class="${style['error']}">
           Uh oh: ${data.order.status.msg}
@@ -167,9 +166,12 @@ module.exports = function renderCheckout(data) {
           </div>
 
           <div class="tt-form-buttons ${style['tt-form-buttons']}">
-            ${data.isResolving ? loading() : [
+            ${data.isResolving ? button({
+                type: 'submit',
+                disabled: true
+              }, 'Place order') :
               button({ type: 'submit' }, 'Place Order')
-            ]}
+            }
           </div>
 
         </form>

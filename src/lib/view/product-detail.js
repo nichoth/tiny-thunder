@@ -21,18 +21,6 @@ module.exports = function(data) {
     return img.url.http
   })
 
-  function nav() {
-    return bel`
-      <div class="tt-product-nav ${style['product-nav']}">
-        ${buttonBack()}
-        ${cartIcon({
-          isResolving: c.isResolving,
-          total: c.total_unique_items
-        })}
-      </div>
-    `
-  }
-
   function imageGallery(images) {
     return bel`
       <div class="tt-product-image-gallery ${style['product-gallery']}">
@@ -71,6 +59,7 @@ module.exports = function(data) {
       var item = c.contents[id]
       return item.id === p.id
     })
+
     return inCart ? view : add
   }
 
@@ -79,7 +68,7 @@ module.exports = function(data) {
 
 
       ${stickyNav([
-        buttonBack(),
+        buttonBack({ href: '/'+data.product.category.value.toLowerCase() }),
         logoIcon(),
         cartIcon({
           isResolving: c.isResolving,

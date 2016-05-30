@@ -7,4 +7,13 @@ module.exports = csjs`
     font-size: 1em;
     cursor: pointer;
   }
+
+  .real-button:disabled {
+    cursor: initial;
+  }
+
+  .real-button:disabled:hover {
+    border: 2px solid gray;
+    color: gray;
+  }
 `

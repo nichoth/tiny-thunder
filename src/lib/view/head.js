@@ -75,7 +75,6 @@ function rombus(link) {
 }
 
 module.exports = function render (data) {
-  console.log(data)
   var links = data.links
 
   var subNav = links.subNav.length ?

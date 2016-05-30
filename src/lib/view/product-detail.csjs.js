@@ -1,4 +1,5 @@
 var buttonStyle = require('h-buttons')
+var loadingStyle = require('./components/spinner.csjs')
 var csjs = require('csjs')
 
 module.exports = csjs`
@@ -51,6 +52,10 @@ module.exports = csjs`
 
   .tt-prod-buttons {
     text-align: right;
+  }
+
+  .tt-prod-buttons ${loadingStyle['loader']} {
+    margin: 2em 8em;
   }
 
   .tt-prod-buttons button:disabled {
