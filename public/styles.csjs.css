@@ -1,5 +1,5 @@
 
-  .diamond-item_4lQKWG {
+  .diamond-item_4w4Pck {
     z-index: 2;
     pointer-events: none;
     flex: 1;
@@ -7,50 +7,56 @@
     height: 90px;
   }
 
-  .half-diamond-item_4lQKWG {
+  .half-diamond-item_4w4Pck {
     flex: 0.5;
   }
 
-  .half-diamond-r_4lQKWG {
+  .half-diamond-l_4w4Pck {
+    position: relative;
+    bottom: 2.7em;
+  }
+
+  .half-diamond-r_4w4Pck {
     position: relative;
     bottom: 1.6em;
   }
 
-  .diamond-wrapper_4lQKWG {
+  .diamond-wrapper_4w4Pck {
     display: flex;
     flex-flow: row wrap;
   }
 
-  .sub-nav-wrapper_4lQKWG {
+  .sub-nav-wrapper_4w4Pck {
     z-index: 1;
     position: relative;
     bottom: 155px;
   }
 
-  .sub-nav-wrapper_4lQKWG .diamond-item_4lQKWG {
+  .sub-nav-wrapper_4w4Pck .diamond-item_4w4Pck {
     height: 185px;
   }
 
-  .sub-nav-wrapper_4lQKWG polyline {
+  .sub-nav-wrapper_4w4Pck polyline {
     fill: whitesmoke;
   }
 
-  .sub-nav-wrapper_4lQKWG .nav-text_4lQKWG {
+  .sub-nav-wrapper_4w4Pck .nav-text_4w4Pck {
     top: 130px;
   }
 
-  .nav-text_4lQKWG {
+  .nav-text_4w4Pck {
     pointer-events: initial;
     position: relative;
     top: 40px;
   }
 
-  .nav-text-left_4lQKWG {
-    top: 30px;
+  .nav-text-left_4w4Pck {
+    display: block;
+    top: 3.8em;
     right: 2em;
   }
 
-  .nav-text-right_4lQKWG {
+  .nav-text-right_4w4Pck {
     top: 64px;
     left: 4em;
     display: block;
@@ -58,10 +64,10 @@
     height: 3em;
   }
 
-  .nav-text-right_4lQKWG .tt-cart-qty_3Hoh6v {
+  .nav-text-right_4w4Pck .tt-cart-qty_3Hoh6v {
   }
 
-  .nav-text_4lQKWG a {
+  .nav-text_4w4Pck a {
     font-family: Avenir Next;
     text-transform: uppercase;
     text-decoration: none;
@@ -69,7 +75,7 @@
     letter-spacing: 0.1em;
   }
 
-  .nav-text_4lQKWG a.active-link_4lQKWG {
+  .nav-text_4w4Pck a.active-link_4w4Pck {
     font-weight: bold;
   }
 
@@ -288,6 +294,27 @@
     text-decoration: none;
   }
 
+  .sticky-nav_3k6wA3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+  }
+
+  .tt-cart_30uoZl .sticky-nav_3k6wA3 nav {
+    justify-content: center;
+  }
+
+  .sticky-nav_3k6wA3 nav {
+    padding: 0 1em;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.8em;
+  }
+
 .loader_yw2P9:before,
 .loader_yw2P9:after,
 .loader_yw2P9 {
@@ -345,27 +372,6 @@
     box-shadow: 0 2.5em 0 0;
   }
 }
-
-  .sticky-nav_3k6wA3 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-  }
-
-  .tt-cart_30uoZl .sticky-nav_3k6wA3 nav {
-    justify-content: center;
-  }
-
-  .sticky-nav_3k6wA3 nav {
-    padding: 0 1em;
-    border-bottom: 1px solid gray;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2.8em;
-  }
 
   .checkout-head_2qKKO0 {
     display: flex;

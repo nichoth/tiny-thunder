@@ -14,6 +14,11 @@ module.exports = csjs`
     flex: 0.5;
   }
 
+  .half-diamond-l {
+    position: relative;
+    bottom: 2.7em;
+  }
+
   .half-diamond-r {
     position: relative;
     bottom: 1.6em;
@@ -49,7 +54,8 @@ module.exports = csjs`
   }
 
   .nav-text-left extends .nav-text {
-    top: 30px;
+    display: block;
+    top: 3.8em;
     right: 2em;
   }
 

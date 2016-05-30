@@ -1,4 +1,4 @@
-var logo = require('./logo')
+var logoIcon = require('./components/logo-icon')
 var cartIcon = require('./components/cart-icon')
 var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
@@ -10,9 +10,9 @@ var dFilter = ''
 
 function halfDiamondL() {
   return bel`
-    <div class="half-diamond-item ${style['half-diamond-item']}">
+    <div class="half-diamond-item ${style['half-diamond-l']} ${style['half-diamond-item']}">
       <span class="nav-text ${style['nav-text-left']}">
-        home
+        ${logoIcon()}
       </span>
       <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
         preserveAspectRatio="none">

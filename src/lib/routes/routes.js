@@ -10,8 +10,8 @@ module.exports = function(moltin, setRoute) {
   return {
     '/': require('./root').bind(null, cache, cartAdapter),
     '/cart': require('./cart').bind(null, cartAdapter),
-    '/:category': require('./category').bind(null, cache),
-    '/jewelry/:subCategory': require('./sub-category').bind(null, cache),
+    '/:category': require('./category').bind(null, cache, cartAdapter),
+    '/jewelry/:subCategory': require('./sub-category').bind(null, cache, cartAdapter),
     '/product/:productSlug': require('./product-detail')
       .bind(null, cache, cartAdapter),
     '/cart/checkout': require('./checkout').bind(null, cartAdapter, moltin)

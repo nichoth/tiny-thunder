@@ -1,27 +1,39 @@
+var struct = require('observ-struct')
 var State = require('../data/product-state')
 var xtend = require('xtend')
 var cats = require('../../config.json').categories
 var page = require('../view/wrapper')
 
-module.exports = function(cache, params) {
-  var s = State()
-  s.isResolving.set(true)
+module.exports = function(cache, cartAdapter, params) {
+  var s = struct({
+    products: State(),
+    cart: cartAdapter.state
+  })
+
+  cartAdapter.actions.getContents()
+
+  s.products.isResolving.set(true)
   cache.forCategory(params.category, function(err, prods) {
     if (err) return console.log(err, err.response.body)
-    s.isResolving.set(false)
-    s.products.set(prods)
+    s.products.isResolving.set(false)
+    s.products.products.set(prods)
   })
+
   s.render = function(data) {
     var links = cats.map(function(c) {
+      var active = c.name === params.category
+
       return {
-        url: '/'+c.name,
+        url: active ? '/' : '/'+c.name,
         text: c.name,
-        activeLink: c.name === params.category
+        activeLink: active
       }
     })
+
     var activeLink = cats.find(function(c) {
       return c.name === params.category
     })
+
     var subLinks = activeLink && activeLink.children ?
       activeLink.children.map(function(ch) {
         return {
@@ -31,10 +43,10 @@ module.exports = function(cache, params) {
       }) :
       ''
 
-    return page( xtend(data, {
+    return page( xtend(data.products, {
       links: links,
       subLinks: subLinks
-    }))
+    }, { cart: data.cart }))
   }
   return s
 }
