@@ -25,11 +25,14 @@ function halfDiamondL() {
   `
 }
 
-function halfDiamondR() {
+function halfDiamondR(data) {
   return bel`
     <div class="half-diamond-item ${style['half-diamond-item']} ${style['half-diamond-r']}">
       <span class="nav-text ${style['nav-text-right']}">
-        ${cartIcon()}
+        ${cartIcon({
+          isResolving: data.cart.isResolving,
+          total: data.cart.cart.total_unique_items
+        })}
       </span>
       <svg class="test" width="100%" height="100%" viewBox="0 0 100 100"
         preserveAspectRatio="none">
@@ -72,6 +75,7 @@ function rombus(link) {
 }
 
 module.exports = function render (data) {
+  console.log(data)
   var links = data.links
 
   var subNav = links.subNav.length ?
@@ -92,7 +96,7 @@ module.exports = function render (data) {
         <div class="diamond-wrapper ${style['diamond-wrapper']}">
           ${halfDiamondL()}
           ${links.nav.map(diamond)}
-          ${halfDiamondR()}
+          ${halfDiamondR(data)}
         </div>
           ${subNav}
       </nav>

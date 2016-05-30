@@ -4,6 +4,7 @@ var products = require('./products')
 var style = require('./fancy-nav.csjs')
 
 module.exports = function(data) {
+  console.log(data)
 
   function a(link) {
     var cl = link.activeLink ? style['active-link'] : ''

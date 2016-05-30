@@ -7,8 +7,6 @@ module.exports = function(data) {
     return loading()
   }
 
-  console.log(data.products)
-
   function product(p) {
     return bel`
       <li class="tt-product ${style['product-list-item']}">

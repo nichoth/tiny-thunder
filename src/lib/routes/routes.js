@@ -8,7 +8,7 @@ module.exports = function(moltin, setRoute) {
   //var orderModel = OrderModel(moltin)
 
   return {
-    '/': require('./root').bind(null, cache),
+    '/': require('./root').bind(null, cache, cartAdapter),
     '/cart': require('./cart').bind(null, cartAdapter),
     '/:category': require('./category').bind(null, cache),
     '/jewelry/:subCategory': require('./sub-category').bind(null, cache),
