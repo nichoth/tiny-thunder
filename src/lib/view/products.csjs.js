@@ -18,7 +18,7 @@ module.exports = csjs`
   }
 
   .product-list-item .product-image-wrapper {
-    opacity: 0.6;
+    opacity: 0.8;
     transition: opacity 0.3s;
     display: block;
     margin: 0 auto;
@@ -28,6 +28,15 @@ module.exports = csjs`
     background-size: contain;
     -webkit-clip-path: url("#clippy-diamond");
     clip-path: url("#clippy-diamond");
+  }
+
+  /* need line break after image */
+  .product-list-item .product-image-wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
   }
 
   .product-list-item:hover .product-image-wrapper,

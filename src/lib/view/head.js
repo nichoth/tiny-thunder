@@ -89,6 +89,7 @@ module.exports = function render (data) {
     <header>
       <div class="logo-wrapper ${headStyle['logo-wrapper']}">
         <h1 class="site-name">Tiny Thunder</h1>
+        <div>Good jewelry for bad people</div>
       </div>
 
       <nav class="main-nav">
