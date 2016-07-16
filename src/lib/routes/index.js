@@ -7,7 +7,9 @@ var Routes = require('./routes')
 module.exports = function(moltin) {
   var router = Router()
   var activeRoute = observ('')
-  var setRoute = onRoute(function(path) {
+  var setRoute = onRoute({
+    saveScroll: true
+  }, function(path) {
     var m = router.match(path)
     if (!m) {
       return activeRoute.set(four04())

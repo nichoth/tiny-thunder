@@ -340,21 +340,6 @@
   }
 }
 
-  .real-button_Iaq4G {
-    background-color: white;
-    font-size: 1em;
-    cursor: pointer;
-  }
-
-  .real-button_Iaq4G:disabled {
-    cursor: initial;
-  }
-
-  .real-button_Iaq4G:disabled:hover {
-    border: 2px solid gray;
-    color: gray;
-  }
-
   .button_1t4p3H {
     display: inline-block;
     font-weight: bold;
@@ -369,6 +354,21 @@
     text-decoration: none;
     border: 2px solid black;
     color: black;
+  }
+
+  .real-button_Iaq4G {
+    background-color: white;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .real-button_Iaq4G:disabled {
+    cursor: initial;
+  }
+
+  .real-button_Iaq4G:disabled:hover {
+    border: 2px solid gray;
+    color: gray;
   }
 
   .logo-icon_1hGGsq {

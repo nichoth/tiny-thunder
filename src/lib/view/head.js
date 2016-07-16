@@ -2,7 +2,7 @@ var logoIcon = require('./components/logo-icon')
 var cartIcon = require('./components/cart-icon')
 var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
-var bel = require('bel')
+var bel = require('yo-yo')
 
 var dHeight = 90
 //var dFilter = 'url(#dropshadow)'

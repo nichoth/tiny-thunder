@@ -1,0 +1,30 @@
+.logo-wrapper {
+  z-index: 1;
+  top: 0;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+}
+
+h1.site-name {
+  padding-top: 1em;
+  margin-top: 0;
+}
+
+.diamond-wrapper {
+  z-index: 7;
+  position: relative;
+}
+
+.wrapper {
+  background-color: whitesmoke;
+  padding-top: 100vh;
+}
+
+.tt-product-page {
+  bottom: 100px;
+  position: relative;
+  padding-top: 80vh;
+  background-color: whitesmoke;
+  z-index: 1;
+}
