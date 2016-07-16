@@ -73,6 +73,7 @@ nav.main-nav {
 nav.main-nav.sticky {
   position: fixed;
   top: 0;
+  height: 100px;
 }
 
 img {

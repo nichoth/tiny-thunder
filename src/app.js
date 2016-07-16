@@ -13,22 +13,35 @@ window.moltin = moltin
 
 module.exports = function() {
 
+  var listening = true
   function listen () {
     var st = window.st = require('scrolltop')
     var navEl = document.querySelector('nav.main-nav')
     var logoEl = document.querySelector('.logo-wrapper')
-    var offset = navEl.offsetTop
-    var throttledScroll = throttle(onScroll)
-    var winHeight = window.innerHeight
-    var h = outerHeight(logoEl)
+    var offset
+    var throttledScroll
     if (navEl) {
+      offset = navEl.offsetTop
+      throttledScroll = throttle(onScroll)
       window.addEventListener('scroll', throttledScroll)
+      listening = true
+    } else {
+      if (listening) {
+        window.removeEventListener('scroll', throttledScroll)
+        listening = false
+      }
+
     }
 
     function onScroll (ev) {
+      console.log('aaaaaa')
       var viewportHeight = outerHeight(logoEl)
       var scrTop = st()
-      var navHeight = outerHeight(document.querySelector('.diamond-wrapper'))
+      try {
+        var navHeight = outerHeight(document.querySelector('.diamond-wrapper'))
+      } catch (err) {
+        console.log(err)
+      }
       if (scrTop >= (viewportHeight - navHeight + 5)) {
         addClass(navEl, 'sticky')
       } else {
