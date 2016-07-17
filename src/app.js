@@ -1,8 +1,9 @@
 var Router = require('./lib/routes')
 var bel = require('bel')
 var update = require('yo-yo').update
+var config = require('../config')
 var moltin = new Moltin({
-  publicId: process.env.PUBLIC_ID
+  publicId: config.PUBLIC_ID
 })
 window.moltin = moltin
 
