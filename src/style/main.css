@@ -33,6 +33,16 @@ input {
   font-size: 1em;
 }
 
+%uppercase-treatment {
+   letter-spacing: 0.2em;
+   text-transform: uppercase;
+}
+
+.slogan {
+  @extend %uppercase-treatment;
+  font-weight: bold;
+}
+
 .tt-cart-review-page {
   text-align: left;
   padding: 1em;
