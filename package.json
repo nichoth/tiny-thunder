@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
+    "basic-auth": "^1.0.4",
     "csjs-extractify": "^1.0.0-alpha.0",
     "ecstatic": "^1.4.0",
     "envify": "^3.4.0",
