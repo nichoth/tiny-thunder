@@ -1,6 +1,7 @@
 $specialFont: 'Playfair Display', serif;
 
 body {
+  background-color: whitesmoke;
   font-family: avenir next, sans-serif;
   padding: 0;
   margin: 0;
@@ -22,7 +23,7 @@ input {
 }
 
 #content {
-  margin-bottom: 4em;
+  padding-bottom: 4em;
 }
 
 %head-treatment {
@@ -30,6 +31,16 @@ input {
   color: gray;
   font-weight: 400;
   font-size: 1em;
+}
+
+%uppercase-treatment {
+   letter-spacing: 0.2em;
+   text-transform: uppercase;
+}
+
+.slogan {
+  @extend %uppercase-treatment;
+  font-weight: bold;
 }
 
 .tt-cart-review-page {
@@ -88,7 +99,7 @@ h1.site-name {
   text-transform: uppercase;
   font-weight: 100;
   letter-spacing: 0.2em;
-  font-size: 3em;
+  font-size: 5em;
 }
 
 /* vertical center  */
