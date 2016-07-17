@@ -121,7 +121,7 @@ h1.site-name {
 
 /* shopping cart */
 .h-cart-row {
-  background-color: whitesmoke;
+  background-color: white;
   margin-bottom: 0.5em;
   padding: 1em;
 }
@@ -130,6 +130,9 @@ h1.site-name {
 /* buttons */
 .tt-prod-buttons {
   margin-top: 2em;
+  a {
+    background-color: white;
+  }
 }
 
 .tt-button, .tt-button-primary {
@@ -174,4 +177,30 @@ h1.site-name {
 
 .tt-product-detail .tt-prod-buttons .loader {
   display: inline-block;
+}
+
+.tt-form-section {
+  legend {
+    background-color: whitesmoke;
+  }
+  fieldset {
+    input {
+      background-color: whitesmoke;
+    }
+  }
+  fieldset.active-fieldset {
+    background-color: white;
+    padding-top: 3em;
+
+    legend {
+      border-bottom: 1px solid;
+      text-transform: uppercase;
+      background-color: transparent;
+      z-index: 0;
+      position: relative;
+      top: 1.5em;
+      padding: 0;
+      letter-spacing: 0.1em;
+    }
+  }
 }

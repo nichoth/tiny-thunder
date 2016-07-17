@@ -9,6 +9,7 @@ module.exports = csjs`
     padding: 0.6em 1em;
     letter-spacing: 0.1em;
     color: gray;
+    background-color: white;
   }
   .button:hover {
     text-decoration: none;

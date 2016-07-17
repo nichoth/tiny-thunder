@@ -40,7 +40,7 @@ module.exports = csjs`
   }
 
   .sub-nav-wrapper polyline {
-    fill: whitesmoke;
+    fill: white;
   }
 
   .sub-nav-wrapper .nav-text {

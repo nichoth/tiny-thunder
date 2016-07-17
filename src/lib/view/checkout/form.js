@@ -131,6 +131,10 @@ module.exports = function renderCheckout(data) {
     toggleClass(ev.target.parentElement, style.invalid, !v)
   }
 
+  function onFieldsetFocus (ev) {
+    console.log('fieldset')
+  }
+
   return bel`
     <div class="${style['tt-checkout'] + ' '+style['tt-review']}">
 
@@ -139,10 +143,11 @@ module.exports = function renderCheckout(data) {
       <section>
         <form onsubmit=${placeOrder} oninput=${formChange}>
 
-          <div class="${style['form-section']}">
+          <div class="tt-form-section ${style['form-section']}">
+
             <h2>Address</h2>
             <fieldset>
-              <legend>Billing</legend>
+              <legend>Billing Address</legend>
               ${addr('billing')}
             </fieldset>
 
@@ -155,9 +160,10 @@ module.exports = function renderCheckout(data) {
               <div id="shipping-addr-fields">
               </div>
             </fieldset>
+
           </div>
 
-          <div class="${style['form-section']}">
+          <div class="tt-form-section ${style['form-section']}">
             <h2>Payment</h2>
             <fieldset>
               <legend>Card Info</legend>

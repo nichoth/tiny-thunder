@@ -100,7 +100,7 @@ module.exports = function render(data) {
 
   return bel`
     <div class="tt-cart ${style['tt-cart']}">
-      ${head('cart')}
+      ${head('the shopping cart')}
       ${stickyNav([
         logoIcon()
       ])}
