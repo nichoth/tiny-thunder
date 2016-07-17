@@ -1,3 +1,20 @@
-## note
+# tiny thunder
 
-We're waiting for a [patch on hyperx](https://github.com/substack/hyperx/pull/24). Need to update deps after this is fixed.
+## configure
+
+.env
+```ini
+PUBLIC_ID=moltin_public_id
+```
+
+config.json
+```js
+{
+  "IP": "0.0.0.0",
+  "PORT": "8888",
+  "NAME": "me",
+  "PASS": "my_password"
+}
+```
+
+

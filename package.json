@@ -9,7 +9,8 @@
     "dev-server": "wzrd --pushstate --path=public src/main.js:bundle.js -- -dv -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css] | garnish",
     "dev": "npm run dev-server & npm run watchcss",
     "watchjs": "watchify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] -p [csjs-extractify -o public/styles.csjs.css] src/main.js -o public/bundle.js -dv",
-    "build": "browserify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] src/main.js > public/bundle.js",
+    "build-js": "browserify -t [envify --PUBLIC_ID `ini .env PUBLIC_ID`] src/main.js > public/bundle.js",
+    "build": "npm run build-js && npm run css",
     "css": "postcss --config postcss.json",
     "watchcss": "postcss --config postcss.json --watch"
   },
