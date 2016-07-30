@@ -5,7 +5,7 @@ var ecstatic = require('ecstatic')({
   root: __dirname + '/public',
   handleError: false
 })
-var config = require('./config')
+var config = require('./server-config')
 
 http.createServer(function onRequest (req, resp) {
   var creds = auth(req)
