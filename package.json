@@ -9,6 +9,7 @@
     "dev-server": "wzrd --pushstate --path=public src/main.js:bundle.js -- -dv -p [csjs-extractify -o public/styles.csjs.css] | garnish",
     "demo": "npm run build && npm run demo-server",
     "demo-server": "forever start demo-server.js",
+    "stop-demo-server": "forever stop demo-server.js",
     "dev": "npm run dev-server & npm run watchcss",
     "build-js": "browserify -p [csjs-extractify -o public/styles.csjs.css] -t yo-yoify -g es2020 -g uglifyify -p bundle-collapser/plugin src/main.js | uglifyjs -c > public/bundle.js",
     "build-css": "./node_modules/postcss-cli/bin/postcss --config postcss.json",
@@ -36,7 +37,6 @@
     "global": "^4.3.0",
     "h-buttons": "0.0.3",
     "h-shopping-cart": "0.0.7",
-    "moltin": "^1.0.0",
     "object-values": "^1.0.0",
     "object.pick": "^1.1.2",
     "observ": "^0.2.0",
@@ -45,7 +45,6 @@
     "route-event": "1.0.5",
     "routes": "^2.1.0",
     "slug": "https://github.com/nichoth/node-slug/tarball/master",
-    "update-el": "0.0.1",
     "xtend": "^4.0.1",
     "yo-yo": "^1.2.0"
   },

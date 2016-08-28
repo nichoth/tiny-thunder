@@ -91,6 +91,7 @@ node_modules
 bundle.js
 .env
 public/style.css
+server-config.json
 config.json
 public/styles.csjs.css
 dist/*
