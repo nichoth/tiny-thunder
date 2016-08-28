@@ -10,9 +10,10 @@
     "demo": "npm run build && npm run demo-server",
     "demo-server": "forever start demo-server.js",
     "dev": "npm run dev-server & npm run watchcss",
-    "build-js": "browserify -p [csjs-extractify -o public/styles.csjs.css] src/main.js > public/bundle.js",
-    "build": "npm run build-js && npm run css",
-    "css": "./node_modules/postcss-cli/bin/postcss --config postcss.json",
+    "build-js": "browserify -p [csjs-extractify -o public/styles.csjs.css] -g yo-yoify -g es2020 src/main.js | uglifyjs -c > public/bundle.js",
+    "build-css": "./node_modules/postcss-cli/bin/postcss --config postcss.json",
+    "minify-css": "cat public/styles.csjs.css public/style.css | cleancss > public/style.min.css",
+    "build": "npm run build-js && npm run build-css && npm run minify-css && html-inline public/index.prod.html > dist/index.html",
     "watchcss": "postcss --config postcss.json --watch"
   },
   "repository": {
@@ -28,7 +29,6 @@
   "dependencies": {
     "after": "^0.8.1",
     "arrify": "^1.0.1",
-    "bel": "^4.3.1",
     "credit-card-regex": "^1.2.3",
     "csjs": "^1.0.5",
     "dom101": "^1.3.0",
@@ -53,17 +53,22 @@
     "autoprefixer": "^6.3.3",
     "basic-auth": "^1.0.4",
     "browserify": "^13.0.1",
+    "clean-css": "^3.4.19",
     "csjs-extractify": "^1.0.0-alpha.0",
     "ecstatic": "^1.4.0",
+    "es2020": "^1.1.8",
     "forever": "^0.15.2",
     "garnish": "^5.1.1",
+    "html-inline": "^1.2.0",
     "postcss-cli": "^2.5.1",
     "postcss-import": "^8.0.2",
     "postcss-inline-comment": "^2.0.0",
     "postcss-nested": "^1.0.0",
     "postcss-scss": "^0.1.7",
     "precss": "^1.4.0",
+    "uglify-js": "^2.7.3",
+    "uglifyify": "^3.0.2",
     "wzrd": "^1.3.1",
-    "yo-yoify": "^1.0.2"
+    "yo-yoify": "^3.4.1"
   }
 }

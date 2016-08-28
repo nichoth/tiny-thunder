@@ -1,6 +1,6 @@
 var Router = require('./lib/routes')
-var bel = require('bel')
-var update = require('yo-yo').update
+var bel = require('yo-yo')
+var update = bel.update
 var config = require('../config')
 var moltin = new Moltin({
   publicId: config.PUBLIC_ID

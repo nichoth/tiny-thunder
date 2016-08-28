@@ -1,4 +1,4 @@
-var h = require('bel').createElement
+var h = require('yo-yo').createElement
 var arrify = require('arrify')
 var style = require('./button-icon.csjs')
 

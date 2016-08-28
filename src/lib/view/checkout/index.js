@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var orderForm = require('./form')
 var cartIcon = require('../components/cart-icon')
 var logoIcon = require('../components/logo-icon')
@@ -10,7 +10,7 @@ function emptyCart(cartData) {
   var content = cartData.isResolving ? '' :
     'Your cart is empty. Go add some things to it!'
 
-  return bel`
+  return yo`
     <p>${content}</p>
   `
 }
@@ -37,12 +37,12 @@ module.exports = function(data) {
     cl + ' ' + style['resolving'] :
     cl
 
-  return bel`
+  return yo`
     <div class="${cl}">
 
       ${stickyNav([
         logoIcon(),
-        bel`<div class="${style['head']}">Checkout</div>`,
+        yo`<div class="${style['head']}">Checkout</div>`,
         cartIcon({
           isResolving: data.cart.isResolving,
           total: data.cart.cart.total_unique_items

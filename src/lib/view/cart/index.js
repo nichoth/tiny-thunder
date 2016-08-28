@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var logoIcon = require('../components/logo-icon')
 var xtend = require('xtend')
 var renderCart = require('h-shopping-cart')
@@ -17,7 +17,7 @@ module.exports = function render(data) {
   console.log(data)
 
   function symbol(content) {
-    return bel.createElement('span.mod', {
+    return yo.createElement('span.mod', {
       style: "color: gray"
     }, [content])
   }
@@ -41,7 +41,7 @@ module.exports = function render(data) {
     })
   }
 
-  var cartEl = renderCart(bel, xtend(data, {
+  var cartEl = renderCart(yo, xtend(data, {
     rows: Object.keys(cart.cart.contents).map(function(id) {
       var row = xtend(cart.cart.contents[id], {
         cartRowId: id
@@ -62,7 +62,7 @@ module.exports = function render(data) {
 
       return {
         delete: delBtn(onDel.bind(null, row)),
-        title: bel`<a href="${config.productUrl.prefix+'/'+row.slug}">${row.title}</a>`,
+        title: yo`<a href="${config.productUrl.prefix+'/'+row.slug}">${row.title}</a>`,
         priceEach: ['$' + row.price, symbol(' ea')],
         quantity: rowControls.q,
         priceTotal: rowControls.priceTotal
@@ -86,7 +86,7 @@ module.exports = function render(data) {
         }
       }, 'buy these')
 
-    return bel`
+    return yo`
       <div class="${style['button-row']}">
         ${data.cart.isUpdating ? loading() : checkoutBtn}
       </div>
@@ -96,7 +96,7 @@ module.exports = function render(data) {
   function totals () {
     if (data.cart.isResolving) return null
     var totals = data.cart.cart.totals.post_discount.formatted
-    return bel`
+    return yo`
       <div class="tt-totals">
         <span class="tt-total-label">sub-total</span>
         <span class="tt-total-amount">${totals.without_tax}</span>
@@ -113,12 +113,12 @@ module.exports = function render(data) {
 
 
   var content = [
-    isEmpty ? bel`<p>This cart is empty.</p>` : cartEl,
+    isEmpty ? yo`<p>This cart is empty.</p>` : cartEl,
     totals(),
     controls()
   ]
 
-  return bel`
+  return yo`
     <div class="tt-cart ${style['tt-cart']}">
       ${head('the shopping cart')}
       ${stickyNav([

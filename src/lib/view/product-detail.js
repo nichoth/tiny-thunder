@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var style = require('./product-detail.csjs')
 var cartIcon = require('./components/cart-icon')
 var logoIcon = require('./components/logo-icon')
@@ -22,7 +22,7 @@ module.exports = function(data) {
   })
 
   function imageGallery(images) {
-    return bel`
+    return yo`
       <div class="tt-product-image-gallery ${style['product-gallery']}">
         <div class="${style['main-image']}">
           <img src="${images[0]}">
@@ -32,7 +32,7 @@ module.exports = function(data) {
   }
 
   function head() {
-    return bel`
+    return yo`
       <header>
         <h1 class="${style['product-title']}">${p.title}</h1>
         <hr>
@@ -63,7 +63,7 @@ module.exports = function(data) {
     return inCart ? view : add
   }
 
-  return bel`
+  return yo`
     <div class="tt-product-detail ${style['product-detail-page']}">
 
 
@@ -90,7 +90,7 @@ module.exports = function(data) {
         <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
           <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
           ${data.product.stock_level < 1 ?
-            bel`<div class="stock-level">Out of stock</div>` :
+            yo`<div class="stock-level">Out of stock</div>` :
             ''
           }
           ${p.isResolving || data.cart.isResolving ? loading() : addButton()}

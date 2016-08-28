@@ -1,5 +1,5 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 
 module.exports = function() {
-  return bel`<div class="th-404">errrrr not found</div>`
+  return yo`<div class="th-404">errrrr not found</div>`
 }

@@ -93,3 +93,6 @@ bundle.js
 public/style.css
 config.json
 public/styles.csjs.css
+dist/*
+!dist/.gitkeep
+public/style.min.css

@@ -1,5 +1,5 @@
-var bel = require('bel')
-var h = bel.createElement
+var yo = require('yo-yo')
+var h = yo.createElement
 var xtend = require('xtend')
 var style = require('./cart.csjs')
 
@@ -13,7 +13,7 @@ module.exports = function(attrs) {
     className: cl
   }), [])
 
-  // return bel`
+  // return yo`
   //   <input class="tt-qty-btn ${style['tt-qty-btn']}"
   //     type="number"
   //     value=${qty}

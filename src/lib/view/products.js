@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var loading = require('./components/spinner')
 var style = require('./products.csjs')
 
@@ -8,7 +8,7 @@ module.exports = function(data) {
   }
 
   function product(p) {
-    return bel`
+    return yo`
       <li class="tt-product ${style['product-list-item']}">
         <a href="/product/${p.slug}">
           <div class="${style['product-image-wrapper']}" style="background-image: url('${p.images[0].url.http}')">
@@ -26,7 +26,7 @@ module.exports = function(data) {
     return product(p)
   })
 
-  return bel`<div class="tt-product-page">
+  return yo`<div class="tt-product-page">
     <ul class="tt-product-list ${style['product-container']}">
       ${ps}
     </ul>

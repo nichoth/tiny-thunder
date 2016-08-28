@@ -2,14 +2,14 @@ var logoIcon = require('./components/logo-icon')
 var cartIcon = require('./components/cart-icon')
 var headStyle = require('./head-style.csjs')
 var style = require('./fancy-nav.csjs')
-var bel = require('bel')
+var yo = require('yo-yo')
 
 var dHeight = 90
 //var dFilter = 'url(#dropshadow)'
 var dFilter = ''
 
 function halfDiamondL() {
-  return bel`
+  return yo`
     <div class="half-diamond-item ${style['half-diamond-l']} ${style['half-diamond-item']}">
       <span class="nav-text ${style['nav-text-left']}">
         ${logoIcon()}
@@ -26,7 +26,7 @@ function halfDiamondL() {
 }
 
 function halfDiamondR(data) {
-  return bel`
+  return yo`
     <div class="half-diamond-item ${style['half-diamond-item']} ${style['half-diamond-r']}">
       <span class="nav-text nav-text-right ${style['nav-text-right']}">
         ${cartIcon({
@@ -45,7 +45,7 @@ function halfDiamondR(data) {
 }
 
 function diamond(link) {
-  return bel`
+  return yo`
     <div class="diamond-item ${style['diamond-item']}">
       <span class="nav-text ${style['nav-text']}">
         ${link}
@@ -60,7 +60,7 @@ function diamond(link) {
 }
 
 function rombus(link) {
-  return bel`
+  return yo`
     <div class="diamond-item ${style['diamond-item']}">
       <span class="nav-text ${style['nav-text']}">
         ${link}
@@ -78,14 +78,14 @@ module.exports = function render (data) {
   var links = data.links
 
   var subNav = links.subNav.length ?
-    bel`<div class="sub-nav-wrapper ${style['sub-nav-wrapper']}">
+    yo`<div class="sub-nav-wrapper ${style['sub-nav-wrapper']}">
       ${links.subNav.map(function(link) {
         return rombus(link)
       })}
     </div>` :
     ''
 
-  return bel`
+  return yo`
     <header>
       <div class="logo-wrapper ${headStyle['logo-wrapper']}">
         <h1 class="site-name">Tiny Thunder</h1>

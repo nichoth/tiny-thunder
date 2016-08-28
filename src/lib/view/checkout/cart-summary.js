@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var xtend = require('xtend')
 var renderCart = require('h-shopping-cart')
 var style = require('./cart-summary.csjs')
@@ -18,19 +18,19 @@ module.exports = function(cartContents) {
 
   function cell(content, props) {
     var cl = ((props && props.className) || '') + ' ' + style.cell
-    return bel`
+    return yo`
       <span class="${cl}">
         ${content}
       </span>
     `
   }
 
-  var el = bel`
+  var el = yo`
     <ul class=${style['order-summary']}>
       ${rows.map(function(r) {
-        return bel`
+        return yo`
           <li>
-            ${cell(bel`
+            ${cell(yo`
               <img src="${r.image}">
             `, { className: style.image })}
             ${cell(r.title)}

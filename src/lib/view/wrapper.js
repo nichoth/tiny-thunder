@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var head = require('./head')
 var products = require('./products')
 var style = require('./fancy-nav.csjs')
@@ -7,13 +7,13 @@ module.exports = function(data) {
 
   function a(link) {
     var cl = link.activeLink ? style['active-link'] : ''
-    return bel`<a href="${link.url}" class="${cl}">${link.text}</a>`
+    return yo`<a href="${link.url}" class="${cl}">${link.text}</a>`
   }
 
   var navEls = data.links.map(a)
   var subLinks = data.subLinks ? data.subLinks.map(a) : []
 
-  return bel`
+  return yo`
     <div class="wrapper">
       ${head({ links: { nav: navEls, subNav: subLinks }, cart: data.cart })}
       ${products(data)}

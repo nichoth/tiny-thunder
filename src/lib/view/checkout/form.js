@@ -1,4 +1,4 @@
-var bel = require('bel')
+var yo = require('yo-yo')
 var pick = require('object.pick')
 var getFormData = require('form-data-set')
 var addClass = require('dom101/add-class')
@@ -7,14 +7,14 @@ var update = require('yo-yo').update
 var formEl = require('./form-el')
 var button = require('../components/real-button')
 var cartSummary = require('./cart-summary')
-var h = bel.createElement
+var h = yo.createElement
 var style = require('./checkout.csjs')
 var ccRegex = require('credit-card-regex')
 
 
 function payment() {
   var prefix = 'tt-payment-'
-  var input = formEl.bind(null, bel.createElement, prefix)
+  var input = formEl.bind(null, yo.createElement, prefix)
 
   return [
     input({ name: 'Card Number', onfocus: onFocus,
@@ -71,7 +71,7 @@ function addr(idPrefix) {
 
 // show or hide fields for shipping address
 function onShippingChange(ev) {
-  var el = bel`
+  var el = yo`
     <div id="shipping-addr-fields">
       ${ev.target.checked ? '' : addr('shipping')}
     </div>
@@ -117,7 +117,7 @@ module.exports = function renderCheckout(data) {
 
   function error() {
     if (data.order.status && data.order.status.type === 'error') {
-      return bel`
+      return yo`
         <div class="${style['error']}">
           Uh oh: ${data.order.status.msg}
         </div>
@@ -135,7 +135,7 @@ module.exports = function renderCheckout(data) {
     console.log('fieldset')
   }
 
-  return bel`
+  return yo`
     <div class="${style['tt-checkout'] + ' '+style['tt-review']}">
 
       ${error()}
