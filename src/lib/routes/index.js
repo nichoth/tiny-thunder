@@ -14,7 +14,6 @@ module.exports = function(moltin) {
       return activeRoute.set(four04())
     }
     m.fn(m.params)
-    console.log(path, scroll);
     setTimeout(function () {
       window.scrollTo(scroll.scrollX, scroll.scrollY);
     }, 0)

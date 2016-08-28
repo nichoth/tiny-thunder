@@ -28,7 +28,7 @@ function halfDiamondL() {
 function halfDiamondR(data) {
   return bel`
     <div class="half-diamond-item ${style['half-diamond-item']} ${style['half-diamond-r']}">
-      <span class="nav-text ${style['nav-text-right']}">
+      <span class="nav-text nav-text-right ${style['nav-text-right']}">
         ${cartIcon({
           isResolving: data.cart.isResolving,
           total: data.cart.cart.total_unique_items

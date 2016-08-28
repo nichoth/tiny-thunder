@@ -93,8 +93,28 @@ module.exports = function render(data) {
     `
   }
 
+  function totals () {
+    if (data.cart.isResolving) return null
+    var totals = data.cart.cart.totals.post_discount.formatted
+    return bel`
+      <div class="tt-totals">
+        <span class="tt-total-label">sub-total</span>
+        <span class="tt-total-amount">${totals.without_tax}</span>
+        <br />
+        <span class="tt-total-label">tax</span>
+        <span class="tt-total-amount">${totals.tax}</span>
+        <br />
+        <span class="tt-total-label">total </span>
+        <span class="tt-total-amount">${totals.with_tax}</span>
+      </div>
+    `
+
+  }
+
+
   var content = [
     isEmpty ? bel`<p>This cart is empty.</p>` : cartEl,
+    totals(),
     controls()
   ]
 

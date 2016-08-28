@@ -166,9 +166,9 @@ h1.site-name {
 }
 
 .tt-price {
-  margin-left: 1.5em;
-  padding-left: 1.5em;
-  border-left: 1px solid lightgray;
+  /* margin-left: 1.5em; */
+  /* padding-left: 1.5em; */
+  /* border-left: 1px solid lightgray; */
   color: darkslategray;
   font-size: 2em;
   font-family: $specialFont;
@@ -180,6 +180,7 @@ h1.site-name {
 }
 
 .tt-form-section {
+  min-width: 20em;
   legend {
     background-color: whitesmoke;
   }
@@ -188,6 +189,7 @@ h1.site-name {
       background-color: whitesmoke;
     }
   }
+
   fieldset.active-fieldset {
     background-color: white;
     padding-top: 3em;
@@ -202,5 +204,42 @@ h1.site-name {
       padding: 0;
       letter-spacing: 0.1em;
     }
+  }
+}
+
+.tt-totals {
+  text-align: right;
+  margin-top: 1em;
+  padding-top: 1em;
+  .tt-total-label {
+    font-style: italic;
+    color: gray;
+  }
+
+  .tt-total-amount:last-child {
+    font-family: Playfair display;
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1150px) {
+    .nav-text-right {
+        left: 6em;
+    }
+}
+
+@media (max-width: 800px) {
+  .tt-cart h1 {
+    font-size: 2em;
+  }
+
+  .h-cart-title {
+    flex: 4;
+  }
+}
+
+@media (max-width: 500px) {
+  .h-cart-title {
+    flex: 2;
   }
 }

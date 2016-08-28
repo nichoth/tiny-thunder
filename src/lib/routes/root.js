@@ -4,6 +4,10 @@ var State = require('../data/product-state')
 var page = require('../view/wrapper')
 var categories = require('../../config.json').categories
 
+function handleErr (err) {
+  console.log(err);
+}
+
 module.exports = function(cache, cartAdapter) {
   var s = struct({
     products: State(),

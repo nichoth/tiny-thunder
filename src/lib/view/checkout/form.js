@@ -188,6 +188,12 @@ module.exports = function renderCheckout(data) {
         ${cartSummary(data.cart.cart.contents)}
       </section>
 
+      <div class="tt-totals">
+        <span class="tt-total-amount">
+          ${data.cart.cart.totals.post_discount.formatted.with_tax}
+        </span>
+      </div>
+
 
     </div>
   `

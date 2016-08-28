@@ -10,16 +10,21 @@ module.exports = csjs`
     text-align: left;
     margin: 0 auto;
     display: flex;
+    flex-flow: row wrap;
   }
 
   .product-description {
+    margin: 0 1em;
     flex: 4;
-    margin-left: 2em;
+    min-width: 20em;
   }
 
   .product-gallery {
-    max-width: 30em;
+    max-width: 35em;
+    min-width: 15em;
     flex: 8;
+    margin: 0 1em;
+    margin-bottom: 2em;
   }
 
   .product-gallery .main-image {
@@ -47,7 +52,7 @@ module.exports = csjs`
 
   .tt-price {
     display: inline-block;
-    float: right;
+    float: left;
   }
 
   .tt-prod-buttons {

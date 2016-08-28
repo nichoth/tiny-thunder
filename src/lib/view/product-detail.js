@@ -83,12 +83,12 @@ module.exports = function(data) {
 
         <div class="tt-product-desc">
           <p class="tt-prod-desc-text">${p.description}</p>
-          <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
         </div>
 
         <hr>
 
         <div class="tt-prod-buttons ${style['tt-prod-buttons']}">
+          <div class="tt-price ${style['tt-price']}">${p.price.value}</div>
           ${data.product.stock_level < 1 ?
             bel`<div class="stock-level">Out of stock</div>` :
             ''

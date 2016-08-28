@@ -23,6 +23,11 @@ module.exports = csjs`
     max-width: 3em;
   }
 
+  .cell-title {
+    text-align: left;
+    padding-left: 2em;
+  }
+
   .tt-cart ${defaultStyle.cell}, .tt-cart ${defaultStyle['cell-title']} {
     align-self: center;
   }

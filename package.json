@@ -35,7 +35,7 @@
     "form-data-set": "^2.0.0",
     "global": "^4.3.0",
     "h-buttons": "0.0.3",
-    "h-shopping-cart": "0.0.5",
+    "h-shopping-cart": "0.0.7",
     "moltin": "^1.0.0",
     "object-values": "^1.0.0",
     "object.pick": "^1.1.2",

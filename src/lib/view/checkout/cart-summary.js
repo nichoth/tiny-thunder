@@ -34,9 +34,9 @@ module.exports = function(cartContents) {
               <img src="${r.image}">
             `, { className: style.image })}
             ${cell(r.title)}
-            ${cell(r.quantity, { className: style.numeric })}
-            ${cell(r.price, { className: style.numeric })}
-            ${cell(r.priceTotal, { className: style.numeric })}
+            ${cell('× ' + r.quantity, { className: style.numeric })}
+            ${cell(r.price + ' each', { className: style.numeric })}
+            ${cell('= ' + r.priceTotal, { className: style.numeric })}
           </li>
         `
       })}
